@@ -1,0 +1,8 @@
+.setInMiddle {
+    display: flex;
+    justify-content: center;
+}
+
+.heroSectionContainer {
+    margin-top: 40px;
+}

@@ -1,0 +1,34 @@
+.navbar {
+  height: 36px;
+  width: 1065px;
+  padding-top: 30px;
+  position: sticky;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.logoContainer {
+  flex: 1;
+}
+
+.logo {
+  height: 100%;
+  width: 165px;
+}
+
+.navLinks {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+  font: normal 20px "Carme", sans-serif;
+}
+
+.navLinks a {
+  text-decoration: none;
+  color: #fff;
+}
