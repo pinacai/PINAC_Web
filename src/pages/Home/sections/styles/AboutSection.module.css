@@ -1,0 +1,74 @@
+.aboutSection {
+  width: 100%;
+  margin-top: 115px;
+  display: flex;
+}
+
+/*       Left Section      */
+/* ======================= */
+
+.leftSection {
+  margin-top: 144px;
+  margin-left: 115px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font: 600 73px "poppins", sans-serif;
+  background: linear-gradient(90deg, #9a9a9a, #eaeaea);
+  line-height: 90px;
+  letter-spacing: -0.25px;
+  position: relative;
+  background-clip: text;
+  color: transparent;
+}
+
+.textBlock {
+  width: 640px;
+  margin-top: 55px;
+}
+
+.contentText {
+  font: normal 20px "poppins", sans-serif;
+  letter-spacing: -0.25px;
+  position: relative;
+  background: linear-gradient(90deg, #b8b6b6, #eaeaea);
+  background-clip: text;
+  color: transparent;
+}
+
+.applyButton {
+  height: 58px;
+  width: 442px;
+  margin-top: 54px;
+  border: none;
+  border-radius: 50px;
+  color: #dcdcdc;
+  font: normal 20px "carme", sans-serif;
+  background: #262626;
+  cursor: pointer;
+}
+
+/*      Right Section      */
+/* ======================= */
+
+.rightSection {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+
+.rightSection img {
+  z-index: 100;
+}
+
+.glowingCircle {
+  width: 280px;
+  height: 630px;
+  border-radius: 50%;
+  background: rgba(4, 218, 245, 0.6);
+  filter: blur(150px);
+  position: absolute;
+  top: 1450px;
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/Navbar.module.css";
+import styles from "./styles/Navbar.module.css";
 import logo from "../../../assets/logo.svg";
 
 const Navbar: React.FC = () => {
@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
           <a href="#projects">Projects</a>
         </li>
         <li>
-          <a href="#">Docs</a>
+          <a href="#">Blogs</a>
         </li>
       </ul>
     </nav>

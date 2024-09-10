@@ -1,7 +1,8 @@
 import React from "react";
 import Navbar from "./components/Navbar";
 import HeroSection from "./sections/HeroSection";
-import styles from "./styles/index.module.css";
+import AboutSection from "./sections/AboutSection";
+import styles from "./index.module.css";
 
 const Home: React.FC = () => {
   return (
@@ -9,8 +10,9 @@ const Home: React.FC = () => {
       <div className={styles.setInMiddle}>
         <Navbar />
       </div>
-      <div className={`${styles.setInMiddle} ${styles.heroSectionContainer}`}>
+      <div className={styles.sectionContainer}>
         <HeroSection />
+        <AboutSection/>
       </div>
     </>
   );
