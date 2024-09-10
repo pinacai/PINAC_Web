@@ -21,7 +21,7 @@ const AboutSection: React.FC = () => {
           </span>
         </div>
         <button className={styles.applyButton}>
-          Apply for Being a Part of Our Journey
+          Be a Part of Our Journey
         </button>
       </div>
       {/*     Right Section     */}

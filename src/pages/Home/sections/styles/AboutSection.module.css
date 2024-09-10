@@ -14,6 +14,11 @@
   flex-direction: column;
 }
 
+.textBlock {
+  width: 640px;
+  margin-top: 55px;
+}
+
 .title {
   font: 600 73px "poppins", sans-serif;
   background: linear-gradient(90deg, #9a9a9a, #eaeaea);
@@ -22,11 +27,6 @@
   position: relative;
   background-clip: text;
   color: transparent;
-}
-
-.textBlock {
-  width: 640px;
-  margin-top: 55px;
 }
 
 .contentText {
@@ -40,7 +40,7 @@
 
 .applyButton {
   height: 58px;
-  width: 442px;
+  width: 287.08px;
   margin-top: 54px;
   border: none;
   border-radius: 50px;
@@ -65,10 +65,10 @@
 
 .glowingCircle {
   width: 280px;
-  height: 630px;
-  border-radius: 50%;
-  background: rgba(4, 218, 245, 0.6);
-  filter: blur(150px);
+  height: 740px;
+  border-radius: 100%;
+  background: rgba(4, 218, 245, 0.4);
+  filter: blur(110px);
   position: absolute;
-  top: 1450px;
+  top: 1270px;
 }
