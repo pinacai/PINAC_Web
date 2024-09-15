@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import HeroSection from "./sections/HeroSection";
 import AboutSection from "./sections/AboutSection";
+import ProjectSection from "./sections/ProjectSection";
 import styles from "./index.module.css";
 
 const Home: React.FC = () => {
@@ -13,6 +14,7 @@ const Home: React.FC = () => {
       <div className={styles.sectionContainer}>
         <HeroSection />
         <AboutSection />
+        <ProjectSection />
       </div>
     </>
   );

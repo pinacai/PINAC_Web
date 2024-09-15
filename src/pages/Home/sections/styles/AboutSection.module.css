@@ -61,7 +61,7 @@
 }
 
 .rightSection img {
-  z-index: 100;
+  z-index: 300;
 }
 
 .glowingCircle {
@@ -73,6 +73,7 @@
   position: absolute;
   top: 1270px;
   animation: glowWave 5s infinite ease-in-out;
+  z-index: 200;
 }
 
 @keyframes glowWave {
