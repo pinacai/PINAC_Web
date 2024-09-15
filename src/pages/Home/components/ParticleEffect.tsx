@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from "react";
 
 interface Particle {
   x: number;
@@ -15,7 +15,7 @@ const ParticleEffect: React.FC = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     canvas.width = window.innerWidth;
@@ -31,7 +31,7 @@ const ParticleEffect: React.FC = () => {
         y: Math.random() * canvas.height,
         size: Math.random() * 3 + 1,
         speedX: Math.random() * 0.5 - 0.25, // Change speed range here for slower speed
-        speedY: Math.random() * 0.5 - 0.25  // Change speed range here for slower speed
+        speedY: Math.random() * 0.5 - 0.25, // Change speed range here for slower speed
       });
     }
 
@@ -41,14 +41,19 @@ const ParticleEffect: React.FC = () => {
       particles.forEach((particle) => {
         particle.x += particle.speedX;
         particle.y += particle.speedY;
-      
+
         if (particle.x > canvas.width) particle.x = 0;
         if (particle.x < 0) particle.x = canvas.width;
         if (particle.y > canvas.height) particle.y = 0;
         if (particle.y < 0) particle.y = canvas.height;
-      
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
-        ctx.fillRect(particle.x - particle.size / 2, particle.y - particle.size / 2, particle.size, particle.size);  // Draw a square
+
+        ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
+        ctx.fillRect(
+          particle.x - particle.size / 2,
+          particle.y - particle.size / 2,
+          particle.size,
+          particle.size
+        ); // Draw a square
       });
 
       requestAnimationFrame(animate);
@@ -61,10 +66,10 @@ const ParticleEffect: React.FC = () => {
       canvas.height = window.innerHeight;
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -72,13 +77,12 @@ const ParticleEffect: React.FC = () => {
     <canvas
       ref={canvasRef}
       style={{
-        position: 'fixed',
+        position: "fixed",
         top: 0,
         left: 0,
-        width: '100%',
-        height: '100%',
-        background: 'black',
-        zIndex: -1
+        height: "500px",
+        width: "1065px",
+        zIndex: -200,
       }}
     />
   );

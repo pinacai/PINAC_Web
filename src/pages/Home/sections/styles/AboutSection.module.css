@@ -2,6 +2,7 @@
   width: 100%;
   margin-top: 115px;
   display: flex;
+  background: #000;
 }
 
 /*       Left Section      */
@@ -67,8 +68,21 @@
   width: 280px;
   height: 740px;
   border-radius: 100%;
-  background: rgba(4, 218, 245, 0.4);
+  background: rgba(4, 218, 245, 0.7);
   filter: blur(110px);
   position: absolute;
   top: 1270px;
+  animation: glowWave 5s infinite ease-in-out;
+}
+
+@keyframes glowWave {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.6;
+  }
 }

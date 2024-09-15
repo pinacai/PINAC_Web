@@ -12,7 +12,7 @@ const Home: React.FC = () => {
       </div>
       <div className={styles.sectionContainer}>
         <HeroSection />
-        <AboutSection/>
+        <AboutSection />
       </div>
     </>
   );

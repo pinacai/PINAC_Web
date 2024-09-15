@@ -1,4 +1,5 @@
 import React from "react";
+import RevealOnScroll from "../components/RevealOnScroll";
 import styles from "./styles/AboutSection.module.css";
 
 // image
@@ -9,25 +10,30 @@ const AboutSection: React.FC = () => {
     <section className={styles.aboutSection}>
       {/*     Left Section     */}
       {/* ===================== */}
-      <div className={styles.leftSection}>
-        <span className={styles.title}>About Us</span>
-        <div className={styles.textBlock}>
-          <span className={styles.contentText}>
-            We are a GitHub organization dedicated to developing AI-powered
-            applications that make people's lives easier. At the core of our
-            organization, we are driven by a deep understanding of the
-            challenges people face in their daily lives and a commitment to
-            leveraging AI to address those challenges.
-          </span>
+      <RevealOnScroll>
+        <div className={styles.leftSection}>
+          <span className={styles.title}>About Us</span>
+          <div className={styles.textBlock}>
+            <span className={styles.contentText}>
+              We are a GitHub organization dedicated to developing AI-powered
+              applications that make people's lives easier. At the core of our
+              organization, we are driven by a deep understanding of the
+              challenges people face in their daily lives and a commitment to
+              leveraging AI to address those challenges.
+            </span>
+          </div>
+          <button className={styles.applyButton}>
+            Be a Part of Our Journey
+          </button>
         </div>
-        <button className={styles.applyButton}>
-          Be a Part of Our Journey
-        </button>
-      </div>
+      </RevealOnScroll>
+
       {/*     Right Section     */}
       {/* ==================== */}
       <div className={styles.rightSection}>
-        <div className={styles.glowingCircle} />
+        <div className={styles.glowingCircleContainer}>
+          <div className={styles.glowingCircle}></div>
+        </div>
         <img
           src={planetImage}
           alt="Planet Image"
