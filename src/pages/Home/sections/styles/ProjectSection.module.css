@@ -2,14 +2,11 @@
   background-color: #000;
   margin-top: 9px;
   position: relative;
-  overflow: hidden;
-  min-height: 100vh;
   z-index: -100;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center
 }
 
 .neuralNetwork {
@@ -23,7 +20,7 @@
 
 .title {
   font: 600 73px "poppins", sans-serif;
-  background: linear-gradient(90deg, #9a9a9a, #eaeaea);
+  background: linear-gradient(45deg, #9a9a9a 40%, #eaeaea);
   line-height: 90px;
   letter-spacing: -0.25px;
   position: relative;
@@ -31,31 +28,47 @@
   color: transparent;
 }
 
+/*        Project Card         */
+/* =========================== */
+
 .cardGrid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 45px;
+  margin-top: 85px;
   position: relative;
-  z-index: 1;
+  z-index: 100;
 }
 
 .projectCard {
-  background-color: rgba(0, 0, 0, 0.8);
-  color: #ffffff;
-  border-radius: 10px;
-  padding: 20px;
-  width: 300px;
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-  backdrop-filter: blur(5px);
+  height: 174px;
+  width: 486px;
+  border-radius: 20px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 25px #08b5f980;
+  backdrop-filter: blur(20px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .cardTitle {
-  font-size: 24px;
-  margin-bottom: 10px;
+  font: 600 32px "poppins", sans-serif;
+  background: linear-gradient(90deg, #9a9a9a, #eaeaea);
+  letter-spacing: -0.25px;
+  background-clip: text;
+  color: transparent;
+  /* margin-top: 16px; */
+  margin-bottom: 13px;
 }
 
 .cardDescription {
-  font-size: 14px;
-  line-height: 1.4;
+  width: 414.39px;
+  font: normal 16px "carme", sans-serif;
+  letter-spacing: 0px;
+  text-align: center;
 }

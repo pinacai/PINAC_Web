@@ -25,8 +25,8 @@ const ProjectSection: React.FC = () => {
       speedY: number;
 
       constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
+        this.x = Math.random() * canvas!.width;
+        this.y = Math.random() * canvas!.height;
         this.size = Math.random() * 2 + 1;
         this.speedX = Math.random() * 3 - 1.5;
         this.speedY = Math.random() * 3 - 1.5;
@@ -36,10 +36,10 @@ const ProjectSection: React.FC = () => {
         this.x += this.speedX;
         this.y += this.speedY;
 
-        if (this.x > canvas.width) this.x = 0;
-        else if (this.x < 0) this.x = canvas.width;
-        if (this.y > canvas.height) this.y = 0;
-        else if (this.y < 0) this.y = canvas.height;
+        if (this.x > canvas!.width) this.x = 0;
+        else if (this.x < 0) this.x = canvas!.width;
+        if (this.y > canvas!.height) this.y = 0;
+        else if (this.y < 0) this.y = canvas!.height;
       }
 
       draw() {
@@ -57,7 +57,7 @@ const ProjectSection: React.FC = () => {
     }
 
     function animate() {
-      ctx!.clearRect(0, 0, canvas.width, canvas.height);
+      ctx!.clearRect(0, 0, canvas!.width, canvas!.height);
       for (let i = 0; i < particles.length; i++) {
         particles[i].update();
         particles[i].draw();
@@ -96,30 +96,30 @@ const ProjectSection: React.FC = () => {
   return (
     <section className={styles.projectSection}>
       <canvas ref={canvasRef} className={styles.neuralNetwork}></canvas>
-      <h1 className={styles.title}>Our Projects</h1>
+      <span className={styles.title}>Our Projects</span>
       <div className={styles.cardGrid}>
         <div className={styles.projectCard}>
-          <h2 className={styles.cardTitle}>PINAC Workspace</h2>
-          <p className={styles.cardDescription}>
-            A desktop application to address the widespread challenges
-            professionals face in formulating effective prompts for AI, which
-            often leads to suboptimal responses.
-          </p>
+          <span className={styles.cardTitle}>PINAC Workspace</span>
+          <span className={styles.cardDescription}>
+            A desktop app to address the widespread challenges professionals
+            face in formulating effective prompts for AI, which often leads to
+            suboptimal responses.
+          </span>
         </div>
         <div className={styles.projectCard}>
-          <h2 className={styles.cardTitle}>PINAC NexusGPT</h2>
-          <p className={styles.cardDescription}>
+          <span className={styles.cardTitle}>PINAC NexusGPT</span>
+          <span className={styles.cardDescription}>
             AI-powered tool for effortless, high-quality results from simple
             prompts. No prompt engineering skills required. The CLI version of
             PINAC Workspace.
-          </p>
+          </span>
         </div>
         <div className={styles.projectCard}>
-          <h2 className={styles.cardTitle}>PINAC-Web</h2>
-          <p className={styles.cardDescription}>
+          <span className={styles.cardTitle}>PINAC-Web</span>
+          <span className={styles.cardDescription}>
             Public repository of this official website of PINAC Organization.
             Contribute to this repository to make this website even better !
-          </p>
+          </span>
         </div>
       </div>
     </section>
