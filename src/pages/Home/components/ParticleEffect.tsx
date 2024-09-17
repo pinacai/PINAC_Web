@@ -22,7 +22,7 @@ const ParticleEffect: React.FC = () => {
     canvas.height = window.innerHeight;
 
     const particles: Particle[] = [];
-    const particleCount = 60;
+    const particleCount = 40;
 
     // Create particles
     for (let i = 0; i < particleCount; i++) {
@@ -80,8 +80,8 @@ const ParticleEffect: React.FC = () => {
         position: "fixed",
         top: 0,
         left: 0,
-        height: "500px",
-        width: "1065px",
+        height: "100%",
+        width: "100%",
         zIndex: -200,
       }}
     />

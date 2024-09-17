@@ -64,14 +64,18 @@
   z-index: 300;
 }
 
+.glowingCircleContainer {
+  position: relative;
+}
+
 .glowingCircle {
   width: 280px;
-  height: 740px;
+  height: 700px;
   border-radius: 100%;
   background: rgba(4, 218, 245, 0.7);
   filter: blur(110px);
   position: absolute;
-  top: 1270px;
+  top: 0;
   animation: glowWave 5s infinite ease-in-out;
   z-index: 200;
 }

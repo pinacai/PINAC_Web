@@ -1,8 +1,15 @@
+.meteoroidShower {
+  position: absolute;
+  top: 2000px;
+  left: 0;
+  z-index: -50;
+}
+
 .projectSection {
-  background-color: #000;
-  margin-top: 9px;
+  /* background-color: #000; */
+  padding-top: 120px;
   position: relative;
-  z-index: -100;
+  /* z-index: -100; */
 
   display: flex;
   flex-direction: column;
