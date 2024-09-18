@@ -128,7 +128,7 @@
 
 .glowingPage img {
   width: 1065px;
-  border: 2px solid #04daf5;
+  /* border: 2px solid #04daf5; */
   border-radius: 20px;
   object-fit: contain;
   position: relative;
