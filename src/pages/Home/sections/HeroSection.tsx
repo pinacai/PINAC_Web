@@ -1,5 +1,4 @@
 import React from "react";
-import ParticleEffect from "../components/ParticleEffect";
 import styles from "./styles/HeroSection.module.css";
 
 // image
@@ -10,7 +9,6 @@ const HeroSection: React.FC = () => {
   return (
     <section className={styles.heroSection}>
       <div className={styles.upperSection}>
-        <ParticleEffect />
         <div className={styles.content}>
           <div className={styles.titleContainer}>
             <span

@@ -116,6 +116,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .glowingPage {
@@ -124,11 +125,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .glowingPage img {
   width: 1065px;
-  /* border: 2px solid #04daf5; */
+  border: 2px solid #04daf5;
   border-radius: 20px;
   object-fit: contain;
   position: relative;
@@ -141,14 +143,14 @@
   background: rgba(4, 218, 245, 0.7);
   filter: blur(150px);
   position: absolute;
-  top: 750px;
+  top: 0;
 }
 
 .darkCircle {
   position: absolute;
-  top: 1050px;
+  top: 370px;
   width: 100%;
-  height: 230px;
+  height: 260px;
   background: #000;
   filter: blur(50px);
   z-index: 200;

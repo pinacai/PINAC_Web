@@ -6,12 +6,11 @@ import meteoroidShower from "../../../assets/Meteoroid Shower.svg";
 
 const ProjectSection: React.FC = () => {
   return (
-    <>
+    <section className={styles.projectSection}>
       <div className={styles.meteoroidShower}>
         <img src={meteoroidShower} alt="" />
       </div>
-      <section className={styles.projectSection}>
-        {/* <canvas ref={canvasRef} className={styles.neuralNetwork}></canvas> */}
+      <div className={styles.cardContainer}>
         <span className={styles.title}>Our Projects</span>
         <div className={styles.cardGrid}>
           <div className={styles.projectCard}>
@@ -38,8 +37,8 @@ const ProjectSection: React.FC = () => {
             </span>
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 
