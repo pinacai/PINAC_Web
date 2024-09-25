@@ -13,10 +13,8 @@ const Home: React.FC = () => {
       </div>
       <div className={styles.sectionContainer}>
         <HeroSection />
-        <div className={styles.particleFree}>
-          <AboutSection />
-          <ProjectSection />
-        </div>
+        <AboutSection />
+        <ProjectSection />
       </div>
     </>
   );

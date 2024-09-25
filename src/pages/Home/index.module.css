@@ -9,14 +9,6 @@
   margin-top: 40px;
 }
 
-.particleFree {
-  display: flex;
-  flex-direction: column;
-  background: #000;
-  z-index: -100;
-}
-
-
 body::-webkit-scrollbar {
   width: 3px;
 }
