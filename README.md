@@ -1,7 +1,11 @@
-# PINAC_Web
+## PINAC_Web
 
 Building the Official Website of the Organization
 
+
+## Figma Design
+
+https://www.figma.com/design/jRPYU80RWHxfvz6cpYbsMI/PINAC-Web?node-id=0-1&t=yq0Lu7CfoWjVN7ge-1
 
 ## Tergated File Structure
 
@@ -35,6 +39,5 @@ Building the Official Website of the Organization
     │   ├── App.css                                 # some global styles
     │   ├── App.tsx
     │   └── index.tsx
-    ├── index.html
-    ├── package.json
-    └── package-lock.json
+    |
+    └── index.html
