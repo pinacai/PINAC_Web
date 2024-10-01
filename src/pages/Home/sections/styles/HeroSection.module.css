@@ -117,16 +117,15 @@
   cursor: pointer;
 }
 
-.primaryButton {
+#primaryButton {
   width: 255px;
   background: var(--secondary-color);
   color: #000;
 }
 
-.secondaryButton {
+#secondaryButton {
   width: 165px;
-  background: #1e1d1d;
-  opacity: 81%;
+  background: rgba(0, 0, 0, 0.3);
   color: #fff;
 }
 

@@ -37,11 +37,21 @@
   border-bottom: 2px solid #04daf5;
 }
 
-.navLinks button {
+#githubButton {
+  height: 30px;
+  width: 176px;
+  color: #fff;
+  background: #000 20%;
+  border: none;
+  border-radius: 20px;
+  font: normal 20px "Carme", sans-serif;
+}
+
+#signinButton {
   height: 30px;
   width: 85px;
   color: #000;
-  background: #08B1F9;
+  background: #08b1f9;
   border: none;
   border-radius: 20px;
   font: normal 20px "Carme", sans-serif;

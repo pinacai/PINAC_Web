@@ -39,10 +39,10 @@ const HeroSection: React.FC = () => {
           </div>
           {showSubtitle && (
             <div className={styles.buttonContainer}>
-              <button className={`${styles.button} ${styles.primaryButton}`}>
+              <button className={styles.button} id={styles.primaryButton}>
                 View PINAC Workspace
               </button>
-              <button className={`${styles.button} ${styles.secondaryButton}`}>
+              <button className={styles.button} id={styles.secondaryButton}>
                 Visit GitHub
               </button>
             </div>
