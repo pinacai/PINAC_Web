@@ -72,21 +72,8 @@
   height: 700px;
   border-radius: 100%;
   background: rgba(4, 218, 245, 0.7);
-  filter: blur(110px);
+  filter: blur(150px);
   position: absolute;
   top: 0;
-  animation: glowWave 5s infinite ease-in-out;
   z-index: 200;
-}
-
-@keyframes glowWave {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 0.4;
-  }
-  50% {
-    transform: scale(1.2);
-    opacity: 0.6;
-  }
 }

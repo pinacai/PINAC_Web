@@ -12,8 +12,12 @@
   --secondary-color: #08b1f9;
 }
 
-body {
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   background: #000;
 }

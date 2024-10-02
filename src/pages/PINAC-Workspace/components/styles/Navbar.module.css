@@ -34,7 +34,7 @@
 }
 
 .navLinks a:hover {
-  border-bottom: 2px solid #04daf5;
+  border-bottom: 2px solid var(--secondary-color);
 }
 
 #githubButton {
@@ -51,7 +51,7 @@
   height: 30px;
   width: 85px;
   color: #000;
-  background: #08b1f9;
+  background: var(--secondary-color);
   border: none;
   border-radius: 20px;
   font: normal 20px "Carme", sans-serif;
