@@ -9,8 +9,8 @@ const PinacWorkspace: React.FC = () => {
       <div className={styles.setInMiddle}>
         <Navbar />
       </div>
+      <HeroSection />
       <div className={styles.sectionContainer}>
-        <HeroSection />
       </div>
     </>
   );

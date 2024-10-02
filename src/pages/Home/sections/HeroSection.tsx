@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import styles from "./styles/HeroSection.module.css";
 
 // image
-import astronautImage from "../../../assets/astronaut.svg";
-import orgGithubPage from "../../../assets/OrgGitHubPage.png";
+import astronautImage from "../../../assets/img/astronaut.svg";
+import orgGithubPage from "../../../assets/img/OrgGitHubPage.png";
 
 const HeroSection: React.FC = () => {
   const [showSubtitle, setShowSubtitle] = useState<boolean>(false);

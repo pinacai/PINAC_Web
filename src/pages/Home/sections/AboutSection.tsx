@@ -3,7 +3,7 @@ import RevealOnScroll from "../components/RevealOnScroll";
 import styles from "./styles/AboutSection.module.css";
 
 // image
-import planetImage from "../../../assets/planet.svg";
+import planetImage from "../../../assets/img/planet.svg";
 
 const AboutSection: React.FC = () => {
   return (

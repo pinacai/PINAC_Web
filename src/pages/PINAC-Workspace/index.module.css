@@ -4,9 +4,9 @@
 }
 
 .sectionContainer {
+  height: calc(100vh - 30px - 36px);
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
 }
 
 body::-webkit-scrollbar {

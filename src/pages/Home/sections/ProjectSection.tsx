@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./styles/ProjectSection.module.css";
 
 // image
-import meteoroidShower from "../../../assets/Meteoroid Shower.svg";
+import meteoroidShower from "../../../assets/img/Meteoroid Shower.svg";
 
 const ProjectSection: React.FC = () => {
   return (

@@ -1,7 +1,41 @@
 .heroSection {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 90px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  margin-top: 128px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 200;
+}
+
+.title {
+  color: #fff;
+  font: bold 122px "nasalization", sans-serif;
+  line-height: 127px;
+}
+
+#secondTitleText {
+  font-size: 150px;
+  letter-spacing: 3px;
+}
+
+.header img {
+  position: absolute;
+  bottom: 20px;
+  left: 450px;
+  width: 50%;
+}
+
+#planetImg {
+  width: calc(100vw - 3px);
+  object-fit: cover;
+  position: absolute;
+  top: 218px;
 }
