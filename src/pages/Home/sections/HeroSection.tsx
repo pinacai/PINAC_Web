@@ -8,6 +8,14 @@ import orgGithubPage from "../../../assets/img/OrgGitHubPage.png";
 const HeroSection: React.FC = () => {
   const [showSubtitle, setShowSubtitle] = useState<boolean>(false);
 
+  const handlePrimaryButtonClick = () => {
+    window.location.href = "/pinac-workspace";
+  };
+
+  const handleSecondaryButtonClick = () => {
+    window.open("https://github.com/pinacai");
+  };
+
   // Set a timeout for the subtitle to appear after the title's animation
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -19,6 +27,8 @@ const HeroSection: React.FC = () => {
 
   return (
     <section className={styles.heroSection}>
+      {/*     Upper Section
+        ======================== */}
       <div className={styles.upperSection}>
         <div className={styles.content}>
           <div className={styles.titleContainer}>
@@ -39,10 +49,18 @@ const HeroSection: React.FC = () => {
           </div>
           {showSubtitle && (
             <div className={styles.buttonContainer}>
-              <button className={styles.button} id={styles.primaryButton}>
+              <button
+                className={styles.button}
+                id={styles.primaryButton}
+                onClick={handlePrimaryButtonClick}
+              >
                 View PINAC Workspace
               </button>
-              <button className={styles.button} id={styles.secondaryButton}>
+              <button
+                className={styles.button}
+                id={styles.secondaryButton}
+                onClick={handleSecondaryButtonClick}
+              >
                 Visit GitHub
               </button>
             </div>
@@ -56,7 +74,7 @@ const HeroSection: React.FC = () => {
           />
         </div>
       </div>
-      {/* Lower Section   
+      {/*     Lower Section   
       {/* ==================== */}
       <div className={styles.lowerSection}>
         <div className={styles.glowingPage}>

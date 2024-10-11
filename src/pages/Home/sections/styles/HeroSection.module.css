@@ -1,10 +1,12 @@
 .heroSection {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
-/*      Lower Section      */
+/* ======================= */
+/*      Upper Section      */
 /* ======================= */
 
 .upperSection {
@@ -99,6 +101,9 @@
   z-index: 1;
 }
 
+/*    Buttons    */
+/* ------------- */
+
 .buttonContainer {
   display: flex;
   gap: 1rem;
@@ -119,8 +124,31 @@
 
 #primaryButton {
   width: 255px;
-  background: var(--secondary-color);
+  border: none;
   color: #000;
+  background: var(--secondary-color);
+  background-size: 100% auto;
+}
+
+#primaryButton:hover {
+  background-position: right center;
+  background-size: 200% auto;
+  -webkit-animation: pulse 2s infinite;
+  animation: pulse512 1.5s infinite;
+}
+
+@keyframes pulse512 {
+  0% {
+    box-shadow: 0 0 0 0 #05bada66;
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+  }
 }
 
 #secondaryButton {
@@ -128,6 +156,9 @@
   background: rgba(0, 0, 0, 0.3);
   color: #fff;
 }
+
+/*    Astronaut Image    */
+/* --------------------- */
 
 .imageContainer {
   height: 536px;
@@ -142,6 +173,7 @@
   object-fit: contain;
 }
 
+/* ======================= */
 /*      Lower Section      */
 /* ======================= */
 
@@ -172,6 +204,9 @@
   z-index: 100;
 }
 
+/*    Background Glow    */
+/* --------------------- */
+
 .glowingCircle {
   width: 1100px;
   height: 200px;
@@ -183,6 +218,9 @@
   border-radius: 50%;
   box-shadow: 0 0 100px 200px rgba(4, 218, 245, 0.3);
 }
+
+/*    Dark Ending    */
+/* ----------------- */
 
 .darkCircle {
   position: absolute;

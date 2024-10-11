@@ -4,6 +4,7 @@
   display: flex;
 }
 
+/* ======================= */
 /*       Left Section      */
 /* ======================= */
 
@@ -38,6 +39,9 @@
   color: transparent;
 }
 
+/*    Join Button 	  */
+/* ------------------ */
+
 .applyButton {
   height: 58px;
   width: 287.08px;
@@ -50,6 +54,7 @@
   cursor: pointer;
 }
 
+/* ======================= */
 /*      Right Section      */
 /* ======================= */
 
