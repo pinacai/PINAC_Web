@@ -1,6 +1,8 @@
 import React from "react";
 import Navbar from "./components/Navbar";
 import HeroSection from "./sections/HeroSection";
+import AppPreview from "./sections/AppPreview";
+import FeatureSection from "./sections/FeatureSection";
 import styles from "./index.module.css";
 
 const PinacWorkspace: React.FC = () => {
@@ -9,8 +11,12 @@ const PinacWorkspace: React.FC = () => {
       <div className={styles.setInMiddle}>
         <Navbar />
       </div>
-      <HeroSection />
       <div className={styles.sectionContainer}>
+        <HeroSection />
+        <div className={styles.restOfContent}>
+          <AppPreview />
+          <FeatureSection />
+        </div>
       </div>
     </>
   );

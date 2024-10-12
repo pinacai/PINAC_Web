@@ -1,9 +1,11 @@
 .heroSection {
-  height: 100%;
+  height: calc(100vh - 30px - 36px);
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  position: fixed;
+  overflow: hidden;
 }
 
 .header {
@@ -12,7 +14,7 @@
   flex-direction: column;
   justify-content: center;
   position: relative;
-  z-index: 200;
+  z-index: 100;
 }
 
 .title {
@@ -37,5 +39,5 @@
   width: calc(100vw - 3px);
   object-fit: cover;
   position: absolute;
-  top: 218px;
+  top: 150px;
 }
