@@ -1,9 +1,11 @@
 .featureSection {
   width: 100%;
-  background: #000;
+  padding-top: 102px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: #000;
+  box-shadow: 0 0 70px 80px #000;
 }
 
 .title {

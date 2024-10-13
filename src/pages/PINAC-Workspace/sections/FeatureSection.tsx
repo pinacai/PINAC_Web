@@ -9,6 +9,12 @@ const FeatureSection: React.FC = () => {
       <span className={styles.title}>
         Next-Gen features that <br /> makes it Worth It
       </span>
+      <div className={styles.boxContainer}>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </section>
   );
 };

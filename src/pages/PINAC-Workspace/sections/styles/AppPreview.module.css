@@ -2,7 +2,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 200;
   transition: opacity 0.5s ease-in-out;
+}
+
+.imageVisible img {
+  border-radius: 20px;
 }
 
 .imageHidden {
