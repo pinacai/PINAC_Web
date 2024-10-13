@@ -17,3 +17,21 @@
   background-clip: text;
   color: transparent;
 }
+
+/* ====================================== */
+/*          RESPONSIVE LAYOUT             */
+/* ====================================== */
+
+@media (max-width: 1024px) {
+  .title {
+    font-size: 42px;
+    line-height: 60px;
+  }
+}
+
+@media (max-width: 774px) {
+  .title {
+    font-size: 30px;
+    line-height: 45px;
+  }
+}

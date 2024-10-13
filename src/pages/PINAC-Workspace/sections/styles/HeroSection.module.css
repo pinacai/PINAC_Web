@@ -36,8 +36,26 @@
 }
 
 #planetImg {
-  width: calc(100vw - 3px);
+  width: 100%;
   object-fit: cover;
   position: absolute;
   top: 150px;
+}
+
+/* ====================================== */
+/*          RESPONSIVE LAYOUT             */
+/* ====================================== */
+
+@media (max-width: 1024px) {
+  .header {
+    margin-top: 95px;
+  }
+
+  .title {
+    font-size: 100px;
+  }
+
+  #secondTitleText {
+    font-size: 122px;
+  }
 }
