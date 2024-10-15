@@ -16,17 +16,16 @@ const ProjectSection: React.FC = () => {
           <div className={styles.projectCard}>
             <span className={styles.cardTitle}>PINAC Workspace</span>
             <span className={styles.cardDescription}>
-              A desktop app to address the widespread challenges professionals
-              face in formulating effective prompts for AI, which often leads to
-              suboptimal responses.
+              A desktop app to address the widespread challenges in formulating
+              effective prompts for AI, which often leads to suboptimal
+              responses.
             </span>
           </div>
           <div className={styles.projectCard}>
             <span className={styles.cardTitle}>PINAC NexusGPT</span>
             <span className={styles.cardDescription}>
               AI-powered tool for effortless, high-quality results from simple
-              prompts. No prompt engineering skills required. The CLI version of
-              PINAC Workspace.
+              prompts. The CLI version of PINAC Workspace, made for quick access.
             </span>
           </div>
           <div className={styles.projectCard}>
