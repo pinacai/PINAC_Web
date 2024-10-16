@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useState } from "react";
+import React, { ReactNode, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
@@ -13,21 +13,15 @@ const RevealOnScroll: React.FC<RevealProps> = ({
 }) => {
   const controls = useAnimation();
   const [ref, inView] = useInView({
-    triggerOnce: false,
-    threshold: 0.1, // Adjust this value to control when the animation triggers
+    triggerOnce: true, // Change to true to trigger only once
+    threshold: 0.5, // Adjust this value to control when the animation triggers
   });
 
-  const [hasAnimated, setHasAnimated] = useState(false);
-
   useEffect(() => {
-    if (inView && !hasAnimated) {
+    if (inView) {
       controls.start("visible");
-      setHasAnimated(true);
-    } else if (!inView && hasAnimated) {
-      controls.start("hidden");
-      setHasAnimated(false);
     }
-  }, [controls, inView, hasAnimated]);
+  }, [controls, inView]);
 
   const variants = {
     visible: { opacity: 1, scale: 1, y: 0 },

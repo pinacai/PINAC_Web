@@ -60,11 +60,16 @@
   background: rgba(0, 0, 0, 0.8);
   box-shadow: 0 0 25px rgba(8, 181, 249, 0.85);
   backdrop-filter: blur(20px);
+  cursor: pointer;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.projectCard:hover {
+  border: 2px solid var(--secondary-color);
 }
 
 .cardTitle {
