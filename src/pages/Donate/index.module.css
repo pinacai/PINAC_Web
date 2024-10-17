@@ -1,0 +1,17 @@
+.setInMiddle {
+  display: flex;
+  justify-content: center;
+}
+
+.sectionContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.restOfContent {
+  z-index: 200;
+  margin-top: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
           <a href="#projects">Projects</a>
         </li>
         <li>
-          <a href="#donate">Donate</a>
+          <a href="/donate">Donate</a>
         </li>
         <li>
           <button>Sign In</button>
