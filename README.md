@@ -19,6 +19,8 @@ Building the Official Website of the Organization
 
 </div>
 
+_We are seeking collaboration to design the website on Figma._
+
 
 ## ✍ Figma Design
 
