@@ -9,7 +9,9 @@
 }
 
 .title {
-  font: 600 73px "poppins", sans-serif;
+  font:
+    600 73px "poppins",
+    sans-serif;
   background: linear-gradient(90deg, #9a9a9a, #eaeaea);
   line-height: 90px;
   letter-spacing: -0.25px;
@@ -18,7 +20,9 @@
   color: transparent;
 }
 .contentText {
-  font: normal 20px "poppins", sans-serif;
+  font:
+    normal 20px "poppins",
+    sans-serif;
   letter-spacing: -0.25px;
   position: relative;
   background: linear-gradient(90deg, #b8b6b6, #eaeaea);
@@ -26,11 +30,9 @@
   color: transparent;
 }
 
-
 /* ======================= */
 /*     Donate Form   */
 /* ======================= */
-
 
 .container {
   background-color: #fff;
@@ -39,11 +41,11 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 form {
-  display: flex; 
-  flex-direction: column; 
-  width: 100vh; 
-  height: auto; 
-  box-sizing: border-box; 
+  display: flex;
+  flex-direction: column;
+  width: 100vh;
+  height: auto;
+  box-sizing: border-box;
 }
 
 .form-group {
@@ -51,9 +53,11 @@ form {
 }
 
 label {
-  font: normal 20px "poppins", sans-serif;
+  font:
+    normal 20px "poppins",
+    sans-serif;
   letter-spacing: -0.25px;
-  color:#fff;
+  color: #fff;
   display: block;
   margin: 15px 5px;
 }
@@ -69,7 +73,7 @@ input[type="number"] {
 }
 
 .donateButton {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 12px 20px;
   border: none;
@@ -82,7 +86,6 @@ input[type="number"] {
 .donateButton:hover {
   background-color: #45a049;
 }
-
 
 /* ====================================== */
 /*          RESPONSIVE LAYOUT             */

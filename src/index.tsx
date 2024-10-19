@@ -8,5 +8,5 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <FirebaseProvider>
       <App />
     </FirebaseProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

@@ -19,7 +19,9 @@
 
 .title {
   color: #fff;
-  font: bold 122px "nasalization", sans-serif;
+  font:
+    bold 122px "nasalization",
+    sans-serif;
   line-height: 127px;
 }
 

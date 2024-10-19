@@ -21,7 +21,9 @@
 }
 
 .title {
-  font: 600 73px "poppins", sans-serif;
+  font:
+    600 73px "poppins",
+    sans-serif;
   background: linear-gradient(90deg, #9a9a9a, #eaeaea);
   line-height: 90px;
   letter-spacing: -0.25px;
@@ -31,7 +33,9 @@
 }
 
 .contentText {
-  font: normal 20px "poppins", sans-serif;
+  font:
+    normal 20px "poppins",
+    sans-serif;
   letter-spacing: -0.25px;
   position: relative;
   background: linear-gradient(90deg, #b8b6b6, #eaeaea);
@@ -60,7 +64,9 @@
   margin-top: 54px;
   border: none;
   border-radius: 50px;
-  font: normal 20px "carme", sans-serif;
+  font:
+    normal 20px "carme",
+    sans-serif;
   cursor: pointer;
   position: relative;
   color: #dcdcdc;

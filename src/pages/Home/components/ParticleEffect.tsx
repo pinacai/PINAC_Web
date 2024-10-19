@@ -52,7 +52,7 @@ const ParticleEffect: React.FC = () => {
           particle.x - particle.size / 2,
           particle.y - particle.size / 2,
           particle.size,
-          particle.size
+          particle.size,
         ); // Draw a square
       });
 

@@ -21,11 +21,9 @@ Building the Official Website of the Organization
 
 _We are seeking collaboration to design the website on Figma._
 
-
 ## ✍ Figma Design
 
 https://www.figma.com/design/jRPYU80RWHxfvz6cpYbsMI/PINAC-Web?node-id=0-1&t=yq0Lu7CfoWjVN7ge-1
-
 
 ## 📂 File Structure
 
@@ -59,7 +57,6 @@ https://www.figma.com/design/jRPYU80RWHxfvz6cpYbsMI/PINAC-Web?node-id=0-1&t=yq0L
     │   └── index.tsx
     └── index.html
 
-
 ## 🚀 Getting Started
 
 1. Clone the Repository
@@ -79,11 +76,9 @@ https://www.figma.com/design/jRPYU80RWHxfvz6cpYbsMI/PINAC-Web?node-id=0-1&t=yq0L
    npm run dev
    ```
 
-
 ## 🎉 Contributing
 
 I highly welcome contributions! You can contribute to this project in different ways: _*Build design on Figma*_, _*Contribute to the codebase*_, or _*provide functionality ideas*_!
-
 
 ## 📄 License
 

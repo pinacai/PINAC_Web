@@ -11,7 +11,7 @@ const Donate: React.FC = () => {
   return (
     <>
       <div>
-          <DonateNavbar/ >
+        <DonateNavbar />
       </div>
       <div className={styles.sectionContainer}>
         <DonateSection />

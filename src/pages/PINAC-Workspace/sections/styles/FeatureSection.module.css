@@ -9,7 +9,9 @@
 }
 
 .title {
-  font: bold 50px "Catamaran", sans-serif;
+  font:
+    bold 50px "Catamaran",
+    sans-serif;
   line-height: 70px;
   left: 1%;
   text-align: center;
