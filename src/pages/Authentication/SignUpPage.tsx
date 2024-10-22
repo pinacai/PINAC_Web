@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { FirebaseContext } from "../../context/Firebase";
 import styles from "./index.module.css";
 
 // icons
@@ -8,6 +9,30 @@ import { IoLockClosedOutline } from "react-icons/io5";
 import { FcGoogle } from "react-icons/fc";
 
 const SignUpPage: React.FC = () => {
+  const firebase = useContext(FirebaseContext);
+  const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+
+  //
+  const handleSignUp = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    event.preventDefault();
+    firebase?.signUpWithEmail(name, email, password).catch((error) => {
+      console.log(error);
+    });
+  };
+
+  //
+  const handleGoogleSignUp = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    event.preventDefault();
+    firebase?.SignUpWithGoogle();
+  };
+
+  // =========================================== //
   return (
     <section className={styles.container}>
       <form className={styles.form}>
@@ -20,8 +45,10 @@ const SignUpPage: React.FC = () => {
           <RiContactsLine size={25} color="#ececec" />
           <input
             type="name"
+            value={name}
             className={styles.input}
             placeholder="Enter your Name"
+            onChange={(event) => setName(event.target.value)}
           />
         </div>
         <div className={styles.flexColumn}>
@@ -31,8 +58,10 @@ const SignUpPage: React.FC = () => {
           <MdAlternateEmail size={25} color="#ececec" />
           <input
             type="emailid"
+            value={email}
             className={styles.input}
             placeholder="Enter your Email"
+            onChange={(event) => setEmail(event.target.value)}
           />
         </div>
 
@@ -43,13 +72,20 @@ const SignUpPage: React.FC = () => {
           <IoLockClosedOutline size={25} color="#ececec" />
           <input
             type="password"
+            value={password}
             className={styles.input}
             placeholder="Enter your Password"
+            onChange={(event) => setPassword(event.target.value)}
           />
         </div>
         {/*        SignUp Button        */}
         {/* =========================== */}
-        <button className={styles.buttonSubmit}>Sign Up</button>
+        <button
+          className={styles.buttonSubmit}
+          onClick={(event) => handleSignUp(event)}
+        >
+          Sign Up
+        </button>
         {/*          or Devider        */}
         {/* ========================== */}
         <div className={styles.devider}>
@@ -60,7 +96,10 @@ const SignUpPage: React.FC = () => {
         {/*        Google SignUp Button       */}
         {/* ================================ */}
         <div className={styles.flexRow}>
-          <button className={styles.googleBtn}>
+          <button
+            className={styles.googleBtn}
+            onClick={(event) => handleGoogleSignUp(event)}
+          >
             <FcGoogle size={25} />
             Continue with Google
           </button>
