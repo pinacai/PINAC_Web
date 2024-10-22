@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./index.module.css";
 
 // icons
-import { RiContactsLine } from "react-icons/ri";
 import { MdAlternateEmail } from "react-icons/md";
 import { IoLockClosedOutline } from "react-icons/io5";
 import { FcGoogle } from "react-icons/fc";
@@ -13,17 +12,6 @@ const SignUpPage: React.FC = () => {
       <form className={styles.form}>
         {/*        Input Fields       */}
         {/* ========================= */}
-        <div className={styles.flexColumn}>
-          <label>Name </label>
-        </div>
-        <div className={styles.inputForm}>
-          <RiContactsLine size={25} color="#ececec" />
-          <input
-            type="name"
-            className={styles.input}
-            placeholder="Enter your Name"
-          />
-        </div>
         <div className={styles.flexColumn}>
           <label>Email </label>
         </div>
@@ -49,7 +37,7 @@ const SignUpPage: React.FC = () => {
         </div>
         {/*        SignUp Button        */}
         {/* =========================== */}
-        <button className={styles.buttonSubmit}>Sign Up</button>
+        <button className={styles.buttonSubmit}>Login</button>
         {/*          or Devider        */}
         {/* ========================== */}
         <div className={styles.devider}>
@@ -62,13 +50,13 @@ const SignUpPage: React.FC = () => {
         <div className={styles.flexRow}>
           <button className={styles.googleBtn}>
             <FcGoogle size={25} />
-            Continue with Google
+            Login with Google
           </button>
         </div>
         {/*        Login Page Link        */}
         {/* ============================= */}
         <p className={styles.p}>
-          Already have a account? <span className={styles.span}>Login</span>
+          Don't have any account? <span className={styles.span}>SignUp</span>
         </p>
       </form>
     </section>
