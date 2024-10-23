@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { FirebaseContext } from "../../context/Firebase";
 import styles from "./index.module.css";
 
@@ -9,6 +10,7 @@ import { IoLockClosedOutline } from "react-icons/io5";
 import { FcGoogle } from "react-icons/fc";
 
 const SignUpPage: React.FC = () => {
+  const navigate = useNavigate();
   const firebase = useContext(FirebaseContext);
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
@@ -20,12 +22,14 @@ const SignUpPage: React.FC = () => {
     firebase?.signUpWithEmail(name, email, password).catch((error) => {
       console.log(error);
     });
+    navigate("/pinac-workspace");
   };
 
   //
   const handleGoogleSignUp = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     firebase?.authenticateWithGoogle();
+    navigate("/pinac-workspace");
   };
 
   // =========================================== //
