@@ -26,9 +26,7 @@
   margin: 0;
   padding: 0;
   gap: 20px;
-  font:
-    normal 20px "Carme",
-    sans-serif;
+  font: normal 20px "Carme", sans-serif;
 }
 
 .navLinks a {
@@ -47,8 +45,6 @@
   background: var(--secondary-color);
   border: none;
   border-radius: 20px;
-  font:
-    normal 20px "Carme",
-    sans-serif;
+  font: normal 20px "Carme", sans-serif;
   cursor: pointer;
 }

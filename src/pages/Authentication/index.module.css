@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: #000;
+  background: #090c13;
 }
 
 .form {
@@ -25,7 +25,8 @@
   align-self: flex-end;
 }
 
-.flexColumn > label {
+.flexColumn {
+  margin: 15px 0;
   color: #ececec;
   font: 500 16px "poppins", sans-serif;
 }

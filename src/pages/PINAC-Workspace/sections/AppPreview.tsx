@@ -45,7 +45,7 @@ const AppPreview: React.FC = () => {
       <img
         src={appImage}
         id={styles.appImage}
-        style={bgGlow ? { boxShadow: "0 0 80px rgba(255, 255, 255, 0.4)" } : {}}
+        style={bgGlow ? { boxShadow: "0 0 80px rgba(255, 255, 255, 0.3)" } : {}}
       />
     </div>
   );

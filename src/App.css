@@ -16,7 +16,7 @@
 /* ============ Basic Colors ========== */
 
 :root {
-  --primary-color: #000;
+  --primary-color: #090c13;
   --secondary-color: #08b1f9;
 }
 
@@ -27,7 +27,7 @@
 }
 
 body {
-  background: #000;
+  background: #090c13;
 }
 
 body::-webkit-scrollbar {

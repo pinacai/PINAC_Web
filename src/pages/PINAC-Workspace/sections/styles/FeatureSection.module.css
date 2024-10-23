@@ -4,14 +4,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #000;
-  box-shadow: 0 0 70px 80px #000;
+  background: #090c13;
+  box-shadow: 0 0 70px 80px #090c13;
 }
 
 .title {
-  font:
-    bold 50px "Catamaran",
-    sans-serif;
+  font: bold 50px "Catamaran", sans-serif;
   line-height: 70px;
   left: 1%;
   text-align: center;

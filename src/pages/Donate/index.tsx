@@ -1,25 +1,79 @@
 import React from "react";
-// import HeroSection from "./sections/HeroSection";
-// import AppPreview from "./sections/AppPreview";
-// import FeatureSection from "./sections/FeatureSection";
-import DonateSection from "./sections/DonateSection";
-
+import Navbar from "./components/Navbar";
 import styles from "./index.module.css";
-import DonateNavbar from "../Home/components/DonateNavbar";
+
+// icons
+import { RiContactsLine } from "react-icons/ri";
+import { MdAlternateEmail } from "react-icons/md";
+import { MdCurrencyRupee } from "react-icons/md";
 
 const Donate: React.FC = () => {
+  const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [amount, setAmount] = React.useState("");
+
   return (
     <>
       <div>
-        <DonateNavbar />
+        <Navbar />
       </div>
-      <div className={styles.sectionContainer}>
-        <DonateSection />
-        {/* <div className={styles.restOfContent}>
-          <AppPreview />
-          <FeatureSection />
-        </div> */}
-      </div>
+      <section className={styles.section}>
+        <span className={styles.title}>Liked Our Projects ?</span>
+        <span className={styles.contentText}>
+          Your contributions help us continue to develop and maintain
+          <br />
+          open-source projects.
+        </span>
+        {/*            Form           */}
+        {/* ========================= */}
+        <form className={styles.form}>
+          <div className={styles.flexColumn}>
+            <label>Name </label>
+          </div>
+          <div className={styles.inputForm}>
+            <RiContactsLine size={25} color="#ececec" />
+            <input
+              type="text"
+              value={name}
+              className={styles.input}
+              placeholder="Tell us your Name"
+              onChange={(event) => setName(event.target.value)}
+            />
+          </div>
+          <div className={styles.flexColumn}>
+            <label>Email </label>
+          </div>
+          <div className={styles.inputForm}>
+            <MdAlternateEmail size={25} color="#ececec" />
+            <input
+              type="email"
+              value={email}
+              className={styles.input}
+              placeholder="Give your Email"
+              onChange={(event) => setEmail(event.target.value)}
+            />
+          </div>
+
+          <div className={styles.flexColumn}>
+            <label>Donation Amount </label>
+          </div>
+          <div className={styles.inputForm}>
+            <MdCurrencyRupee size={25} color="#ececec" />
+            <input
+              type="text"
+              value={amount}
+              className={styles.input}
+              placeholder="Donation Amount"
+              onChange={(event) => setAmount(event.target.value)}
+            />
+          </div>
+          {/*        Donate Button        */}
+          {/* =========================== */}
+          <button type="submit" className={styles.donateButton}>
+            Donate
+          </button>
+        </form>
+      </section>
     </>
   );
 };

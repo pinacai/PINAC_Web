@@ -29,9 +29,7 @@
 }
 
 .title {
-  font:
-    600 73px "poppins",
-    sans-serif;
+  font: 600 73px "poppins", sans-serif;
   background: linear-gradient(45deg, #9a9a9a 40%, #eaeaea);
   line-height: 90px;
   letter-spacing: -0.25px;
@@ -75,9 +73,7 @@
 }
 
 .cardTitle {
-  font:
-    600 28px "poppins",
-    sans-serif;
+  font: 600 28px "poppins", sans-serif;
   background: linear-gradient(90deg, #9a9a9a, #eaeaea);
   letter-spacing: -0.25px;
   background-clip: text;
@@ -87,9 +83,7 @@
 
 .cardDescription {
   width: 414.39px;
-  font:
-    10 16px "carme",
-    sans-serif;
+  font: 10 16px "poppins", sans-serif;
   letter-spacing: 0px;
   text-align: center;
 }

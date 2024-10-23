@@ -18,9 +18,6 @@ const Navbar: React.FC = () => {
         <li>
           <a href="/donate">Donate</a>
         </li>
-        <li>
-          <button>Sign In</button>
-        </li>
       </ul>
     </nav>
   );

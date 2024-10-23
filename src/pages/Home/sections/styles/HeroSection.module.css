@@ -33,9 +33,7 @@
 }
 
 .title {
-  font:
-    600 73px "poppins",
-    sans-serif;
+  font: 600 73px "poppins", sans-serif;
   line-height: 90px;
   letter-spacing: -0.25px;
   position: relative;
@@ -59,9 +57,7 @@
 }
 
 .subtitle {
-  font:
-    normal 20px "poppins",
-    sans-serif;
+  font: normal 20px "poppins", sans-serif;
   letter-spacing: -0.25px;
   position: relative;
 
@@ -122,9 +118,7 @@
   border: none;
   margin-top: 30px;
   border-radius: 50px;
-  font:
-    normal 20px "carme",
-    sans-serif;
+  font: normal 20px "carme", sans-serif;
   cursor: pointer;
 }
 
@@ -233,7 +227,7 @@
   top: 370px;
   width: 100%;
   height: 260px;
-  background: #000;
+  background: #090c13;
   filter: blur(50px);
   z-index: 200;
 }
