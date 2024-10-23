@@ -80,7 +80,10 @@ const SignUpPage: React.FC = () => {
         {/*        SignUp Page Link        */}
         {/* ============================= */}
         <p className={styles.p}>
-          Don't have any account? <span className={styles.span}>SignUp</span>
+          Don't have any account?{" "}
+          <a href="/signup" className={styles.span}>
+            SignUp
+          </a>
         </p>
       </form>
     </section>

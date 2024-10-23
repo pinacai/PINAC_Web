@@ -97,7 +97,10 @@ const SignUpPage: React.FC = () => {
         {/*        Login Page Link        */}
         {/* ============================= */}
         <p className={styles.p}>
-          Already have a account? <span className={styles.span}>Login</span>
+          Already have a account?{" "}
+          <a href="/login" className={styles.span}>
+            Login
+          </a>
         </p>
       </form>
     </section>

@@ -11,7 +11,7 @@
   flex-direction: column;
   background: #101010;
   padding: 30px;
-  width: 450px;
+  width: 400px;
   border-radius: 20px;
   font-family: "poppins", sans-serif;
   box-shadow: 0 0 1.5px #ececec;
@@ -151,6 +151,7 @@
 }
 
 .span {
+  text-decoration: none;
   font-size: 14px;
   margin-left: 5px;
   color: #2d79f3;

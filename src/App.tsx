@@ -4,6 +4,7 @@ import SignUpPage from "./pages/Authentication/SignUpPage";
 import LoginPage from "./pages/Authentication/LoginPage";
 import PinacWorkspace from "./pages/PINAC-Workspace/index";
 import Donate from "./pages/Donate/index";
+import TokenPage from "./pages/Token Page";
 import "./App.css";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/donate" element={<Donate />} />
         <Route path="/support" element={<></>} />
         <Route path="/docs" element={<></>} />
+        <Route path="/user-token" element={<TokenPage />} />
       </Routes>
     </Router>
   );

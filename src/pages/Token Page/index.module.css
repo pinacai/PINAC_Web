@@ -1,0 +1,172 @@
+/* TokenPage.module.css */
+.container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #090c13;
+  padding: 1rem;
+}
+
+.content {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.title {
+  color: white;
+  font: 600 2.5rem "carme", sans-serif;
+  text-align: center;
+}
+
+.tokenCard {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.tokenWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.tokenText {
+  color: white;
+  font: normal 1.1rem "carme", sans-serif;
+  overflow-wrap: break-word;
+  word-break: break-all;
+  flex-grow: 1;
+}
+
+.copyButton {
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.copyButton:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.copyButton:active {
+  transform: scale(0.95);
+}
+
+.copyIcon {
+  transition: transform 0.2s ease;
+}
+
+.copyButton:hover .copyIcon {
+  transform: scale(1.1);
+}
+
+.instruction {
+  color: white;
+  font: normal 1.25rem "carme", sans-serif;
+  text-align: center;
+  opacity: 0.9;
+}
+
+.tooltip {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  color: black;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.2s ease-in;
+  z-index: 1000;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* Tablet Screens */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .tokenText {
+    font-size: 1rem;
+  }
+
+  .instruction {
+    font-size: 1.1rem;
+  }
+
+  .content {
+    max-width: 600px;
+    gap: 1.5rem;
+  }
+}
+
+/* Mobile Screens */
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .tokenCard {
+    padding: 0.75rem;
+  }
+
+  .tokenText {
+    font-size: 0.9rem;
+  }
+
+  .instruction {
+    font-size: 1rem;
+  }
+
+  .content {
+    gap: 1.25rem;
+  }
+
+  .copyButton {
+    padding: 0.4rem;
+  }
+
+  .tooltip {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Custom selection color */
+::selection {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
