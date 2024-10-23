@@ -35,7 +35,7 @@ const SignUpPage: React.FC = () => {
             placeholder="Enter your Password"
           />
         </div>
-        {/*        SignUp Button        */}
+        {/*        Login Button        */}
         {/* =========================== */}
         <button className={styles.buttonSubmit}>Login</button>
         {/*          or Devider        */}
@@ -45,7 +45,7 @@ const SignUpPage: React.FC = () => {
           <span>or</span>
           <span></span>
         </div>
-        {/*        Google SignUp Button       */}
+        {/*        Google login Button       */}
         {/* ================================ */}
         <div className={styles.flexRow}>
           <button className={styles.googleBtn}>
@@ -53,7 +53,7 @@ const SignUpPage: React.FC = () => {
             Login with Google
           </button>
         </div>
-        {/*        Login Page Link        */}
+        {/*        SignUp Page Link        */}
         {/* ============================= */}
         <p className={styles.p}>
           Don't have any account? <span className={styles.span}>SignUp</span>

@@ -1,4 +1,5 @@
 import React, { createContext } from "react";
+import { firebaseConfig } from "./config";
 import { initializeApp } from "firebase/app";
 import { UserCredential } from "@firebase/auth";
 import {
@@ -26,16 +27,6 @@ interface FirebaseContextType {
   ) => Promise<UserCredential | string>;
   SignUpWithGoogle: () => Promise<UserCredential>;
 }
-
-// Firebase Configuration
-const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,
-  authDomain: process.env.AUTH_DOMAIN,
-  projectId: process.env.PROJECT_ID,
-  storageBucket: process.env.STORAGE_BUCKET,
-  messagingSenderId: process.env.MESSAGING_SENDER_ID,
-  appId: process.env.APP_ID,
-};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

@@ -15,7 +15,7 @@
 
 Building the Official Website of the Organization
 
-![](https://skillicons.dev/icons?i=react,vite,typescript)
+![](https://skillicons.dev/icons?i=react,vite,typescript,firebase)
 
 </div>
 
