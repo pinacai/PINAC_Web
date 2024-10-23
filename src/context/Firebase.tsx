@@ -21,11 +21,11 @@ interface FirebaseContextType {
     email: string,
     password: string
   ) => Promise<UserCredential>;
-  signInUser: (
+  signInWithEmail: (
     email: string,
     password: string
   ) => Promise<UserCredential | string>;
-  SignUpWithGoogle: () => Promise<UserCredential>;
+  authenticateWithGoogle: () => Promise<UserCredential>;
 }
 
 // Initialize Firebase
@@ -55,12 +55,7 @@ const signUpWithEmail = async (
   return userCredential;
 };
 
-const SignUpWithGoogle = async (): Promise<UserCredential> => {
-  const userCredential = await signInWithPopup(auth, googleAuthProvider);
-  return userCredential;
-};
-
-const signInUserWithEmail = async (
+const signInWithEmail = async (
   email: string,
   password: string
 ): Promise<UserCredential | string> => {
@@ -69,6 +64,11 @@ const signInUserWithEmail = async (
   } catch (error: any) {
     return error.message;
   }
+};
+
+const authenticateWithGoogle = async (): Promise<UserCredential> => {
+  const userCredential = await signInWithPopup(auth, googleAuthProvider);
+  return userCredential;
 };
 
 // ===========================================//
@@ -81,8 +81,8 @@ export const FirebaseProvider: React.FC<{ children: React.ReactNode }> = ({
   // Context value with authentication methods
   const contextValue: FirebaseContextType = {
     signUpWithEmail,
-    signInUser: signInUserWithEmail,
-    SignUpWithGoogle,
+    signInWithEmail,
+    authenticateWithGoogle,
   };
 
   return (

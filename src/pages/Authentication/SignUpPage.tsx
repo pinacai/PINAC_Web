@@ -15,9 +15,7 @@ const SignUpPage: React.FC = () => {
   const [password, setPassword] = React.useState("");
 
   //
-  const handleSignUp = (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
+  const handleSignUp = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     firebase?.signUpWithEmail(name, email, password).catch((error) => {
       console.log(error);
@@ -25,11 +23,9 @@ const SignUpPage: React.FC = () => {
   };
 
   //
-  const handleGoogleSignUp = (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
+  const handleGoogleSignUp = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    firebase?.SignUpWithGoogle();
+    firebase?.authenticateWithGoogle();
   };
 
   // =========================================== //
@@ -44,7 +40,7 @@ const SignUpPage: React.FC = () => {
         <div className={styles.inputForm}>
           <RiContactsLine size={25} color="#ececec" />
           <input
-            type="name"
+            type="text"
             value={name}
             className={styles.input}
             placeholder="Enter your Name"
@@ -57,7 +53,7 @@ const SignUpPage: React.FC = () => {
         <div className={styles.inputForm}>
           <MdAlternateEmail size={25} color="#ececec" />
           <input
-            type="emailid"
+            type="email"
             value={email}
             className={styles.input}
             placeholder="Enter your Email"
@@ -80,10 +76,7 @@ const SignUpPage: React.FC = () => {
         </div>
         {/*        SignUp Button        */}
         {/* =========================== */}
-        <button
-          className={styles.buttonSubmit}
-          onClick={(event) => handleSignUp(event)}
-        >
+        <button className={styles.buttonSubmit} onClick={handleSignUp}>
           Sign Up
         </button>
         {/*          or Devider        */}
@@ -96,10 +89,7 @@ const SignUpPage: React.FC = () => {
         {/*        Google SignUp Button       */}
         {/* ================================ */}
         <div className={styles.flexRow}>
-          <button
-            className={styles.googleBtn}
-            onClick={(event) => handleGoogleSignUp(event)}
-          >
+          <button className={styles.googleBtn} onClick={handleGoogleSignUp}>
             <FcGoogle size={25} />
             Continue with Google
           </button>

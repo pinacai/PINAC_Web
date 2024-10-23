@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { FirebaseContext } from "../../context/Firebase";
 import styles from "./index.module.css";
 
 // icons
@@ -7,6 +8,25 @@ import { IoLockClosedOutline } from "react-icons/io5";
 import { FcGoogle } from "react-icons/fc";
 
 const SignUpPage: React.FC = () => {
+  const firebase = useContext(FirebaseContext);
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+
+  //
+  const handleSignIn = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    firebase?.signInWithEmail(email, password).catch((error) => {
+      console.log(error);
+    });
+  };
+
+  //
+  const handleGoogleSignIn = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    firebase?.authenticateWithGoogle();
+  };
+
+  // =========================================== //
   return (
     <section className={styles.container}>
       <form className={styles.form}>
@@ -18,9 +38,10 @@ const SignUpPage: React.FC = () => {
         <div className={styles.inputForm}>
           <MdAlternateEmail size={25} color="#ececec" />
           <input
-            type="emailid"
+            type="email"
             className={styles.input}
             placeholder="Enter your Email"
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
 
@@ -33,11 +54,14 @@ const SignUpPage: React.FC = () => {
             type="password"
             className={styles.input}
             placeholder="Enter your Password"
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         {/*        Login Button        */}
         {/* =========================== */}
-        <button className={styles.buttonSubmit}>Login</button>
+        <button className={styles.buttonSubmit} onClick={handleSignIn}>
+          Login
+        </button>
         {/*          or Devider        */}
         {/* ========================== */}
         <div className={styles.devider}>
@@ -48,9 +72,9 @@ const SignUpPage: React.FC = () => {
         {/*        Google login Button       */}
         {/* ================================ */}
         <div className={styles.flexRow}>
-          <button className={styles.googleBtn}>
+          <button className={styles.googleBtn} onClick={handleGoogleSignIn}>
             <FcGoogle size={25} />
-            Login with Google
+            Sign In with Google
           </button>
         </div>
         {/*        SignUp Page Link        */}
