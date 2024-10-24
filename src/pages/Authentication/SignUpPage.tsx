@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import { FirebaseContext } from "../../context/Firebase";
 import Notification from "./components/Notification";
 import styles from "./index.module.css";
@@ -18,6 +18,7 @@ interface NotificationState {
 
 const SignUpPage: React.FC = () => {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const firebase = useContext(FirebaseContext);
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
@@ -36,6 +37,16 @@ const SignUpPage: React.FC = () => {
     });
   };
 
+  // check for redirect url
+  const checkRedirectUrl = () => {
+    const redirectUrl = searchParams.get("redirect");
+    if (redirectUrl) {
+      navigate(redirectUrl);
+    } else {
+      navigate("/pinac-workspace");
+    }
+  };
+
   //
   const handleSignUp = async (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -43,7 +54,7 @@ const SignUpPage: React.FC = () => {
     try {
       await firebase?.signUpWithEmail(name, email, password);
       showNotification("Account created successfully!", "success");
-      setTimeout(() => navigate("/pinac-workspace"), 1500);
+      setTimeout(() => checkRedirectUrl(), 1500);
     } catch (error: any) {
       // Handle specific Firebase error cases
       if (error.code === "auth/email-already-in-use") {
@@ -66,7 +77,7 @@ const SignUpPage: React.FC = () => {
     try {
       await firebase?.authenticateWithGoogle();
       showNotification("Account created successfully!", "success");
-      setTimeout(() => navigate("/pinac-workspace"), 1500);
+      setTimeout(() => checkRedirectUrl(), 1500);
     } catch (error) {
       showNotification("Sorry, something went wrong", "error");
     }

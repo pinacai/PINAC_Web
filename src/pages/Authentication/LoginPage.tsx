@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import { FirebaseContext } from "../../context/Firebase";
 import Notification from "./components/Notification";
 import styles from "./index.module.css";
@@ -17,6 +17,7 @@ interface NotificationState {
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const firebase = useContext(FirebaseContext);
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -26,13 +27,22 @@ const LoginPage: React.FC = () => {
     show: false,
   });
 
-  //
   const showNotification = (message: string, type: "success" | "error") => {
     setNotification({
       message,
       type,
       show: true,
     });
+  };
+
+  // check for redirect url
+  const checkRedirectUrl = () => {
+    const redirectUrl = searchParams.get("redirect");
+    if (redirectUrl) {
+      navigate(redirectUrl);
+    } else {
+      navigate("/pinac-workspace");
+    }
   };
 
   //
@@ -54,7 +64,7 @@ const LoginPage: React.FC = () => {
         }
       } else {
         showNotification("Logged in successfully", "success");
-        setTimeout(() => navigate("/pinac-workspace"), 1500);
+        setTimeout(() => checkRedirectUrl(), 1500);
       }
     } catch (error) {
       showNotification("Sorry, something went wrong", "error");
@@ -69,7 +79,7 @@ const LoginPage: React.FC = () => {
     try {
       await firebase?.authenticateWithGoogle();
       showNotification("Logged in successfully", "success");
-      setTimeout(() => navigate("/pinac-workspace"), 1500);
+      setTimeout(() => checkRedirectUrl(), 1500);
     } catch (error) {
       showNotification("Sorry, something went wrong", "error");
     }

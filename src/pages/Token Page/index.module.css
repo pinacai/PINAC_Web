@@ -25,6 +25,7 @@
 }
 
 .tokenCard {
+  max-height: 100px;
   width: 100%;
   background: rgba(255, 255, 255, 0.02);
   border: 1.5px solid rgba(255, 255, 255, 0.1);
@@ -32,6 +33,7 @@
   padding: 1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
+  overflow: hidden;
 }
 
 .tokenWrapper {
@@ -39,14 +41,6 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-}
-
-.tokenText {
-  color: white;
-  font: normal 1.1rem "carme", sans-serif;
-  overflow-wrap: break-word;
-  word-break: break-all;
-  flex-grow: 1;
 }
 
 .copyButton {

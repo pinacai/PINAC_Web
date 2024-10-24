@@ -1,28 +1,38 @@
 // TokenPage.tsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../context/Firebase";
+import TruncateText from "./components/TruncateText";
 import styles from "./index.module.css";
 
 // icon
 import { MdOutlineContentCopy } from "react-icons/md";
 
-interface TokenPageProps {
-  token?: string;
-}
-
-const TokenPage: React.FC<TokenPageProps> = ({
-  token = "AlzaSyDaGmWKa4JsXZ-HjGw7ISLn_3namBGewQe",
-}) => {
+const TokenPage: React.FC = () => {
+  const [idToken, setIdToken] = useState("");
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(token);
+      await navigator.clipboard.writeText(idToken);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       console.error("Failed to copy:", err);
     }
   };
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        currentUser.getIdToken().then((token) => {
+          setIdToken(token);
+        });
+      }
+    });
+
+    return unsubscribe;
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -31,7 +41,7 @@ const TokenPage: React.FC<TokenPageProps> = ({
 
         <div className={styles.tokenCard}>
           <div className={styles.tokenWrapper}>
-            <span className={styles.tokenText}>{token}</span>
+            <TruncateText text={idToken} maxWidth="90%" />
             <button
               onClick={handleCopy}
               className={styles.copyButton}
