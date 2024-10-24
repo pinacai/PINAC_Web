@@ -4,8 +4,9 @@ import { auth } from "../../../context/Firebase";
 import { onAuthStateChanged, User, signOut } from "firebase/auth";
 import styles from "./styles/Navbar.module.css";
 
-// image
+// image & icons
 import logo from "../../../assets/img/logo.svg";
+import { HiOutlineUserCircle } from "react-icons/hi2";
 
 const Navbar: React.FC = () => {
   const navigate = useNavigate();
@@ -73,21 +74,39 @@ const Navbar: React.FC = () => {
         <li>
           {user ? (
             <div className={styles.userContainer}>
-              <img
-                src={user?.photoURL ?? ""}
-                alt="user"
-                id="userAvatar"
-                className={styles.avatar}
-                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              />
+              {user.photoURL ? (
+                <img
+                  src={user.photoURL}
+                  alt="user"
+                  id="userAvatar"
+                  className={styles.avatar}
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                />
+              ) : (
+                <HiOutlineUserCircle
+                  color="#ececec"
+                  id="userAvatar"
+                  className={styles.avatar}
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                />
+              )}
               {isDropdownOpen && (
                 <div id="userDropdown" className={styles.dropdown}>
                   <div className={styles.dropdownHeader}>
-                    <img
-                      src={user?.photoURL ?? ""}
-                      alt="user"
-                      className={styles.dropdownAvatar}
-                    />
+                    {user.photoURL ? (
+                      <img
+                        src={user.photoURL}
+                        alt="user"
+                        className={styles.dropdownAvatar}
+                      />
+                    ) : (
+                      <HiOutlineUserCircle
+                        color="#ececec"
+                        id="userAvatar"
+                        className={styles.dropdownAvatar}
+                        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                      />
+                    )}
                     <div className={styles.userInfo}>
                       <span className={styles.userName}>
                         {user.displayName || "User"}

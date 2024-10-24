@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { FirebaseContext } from "../../context/Firebase";
+import Notification from "./components/Notification";
 import styles from "./index.module.css";
 
 // icons
@@ -9,32 +10,78 @@ import { MdAlternateEmail } from "react-icons/md";
 import { IoLockClosedOutline } from "react-icons/io5";
 import { FcGoogle } from "react-icons/fc";
 
+interface NotificationState {
+  message: string;
+  type: "success" | "error";
+  show: boolean;
+}
+
 const SignUpPage: React.FC = () => {
   const navigate = useNavigate();
   const firebase = useContext(FirebaseContext);
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [notification, setNotification] = React.useState<NotificationState>({
+    message: "",
+    type: "success",
+    show: false,
+  });
 
-  //
-  const handleSignUp = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    firebase?.signUpWithEmail(name, email, password).catch((error) => {
-      console.log(error);
+  const showNotification = (message: string, type: "success" | "error") => {
+    setNotification({
+      message,
+      type,
+      show: true,
     });
-    navigate("/pinac-workspace");
   };
 
   //
-  const handleGoogleSignUp = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleSignUp = async (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    firebase?.authenticateWithGoogle();
-    navigate("/pinac-workspace");
+
+    try {
+      await firebase?.signUpWithEmail(name, email, password);
+      showNotification("Account created successfully!", "success");
+      setTimeout(() => navigate("/pinac-workspace"), 1500);
+    } catch (error: any) {
+      // Handle specific Firebase error cases
+      if (error.code === "auth/email-already-in-use") {
+        showNotification("Email already exists", "error");
+      } else if (error.code === "auth/invalid-email") {
+        showNotification("Invalid email format", "error");
+      } else if (error.code === "auth/weak-password") {
+        showNotification("Password should be at least 6 characters", "error");
+      } else {
+        showNotification("Sorry, something went wrong", "error");
+      }
+    }
+  };
+
+  //
+  const handleGoogleSignUp = async (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    event.preventDefault();
+    try {
+      await firebase?.authenticateWithGoogle();
+      showNotification("Account created successfully!", "success");
+      setTimeout(() => navigate("/pinac-workspace"), 1500);
+    } catch (error) {
+      showNotification("Sorry, something went wrong", "error");
+    }
   };
 
   // =========================================== //
   return (
     <section className={styles.container}>
+      {notification.show && (
+        <Notification
+          message={notification.message}
+          type={notification.type}
+          onClose={() => setNotification((prev) => ({ ...prev, show: false }))}
+        />
+      )}
       <form className={styles.form}>
         {/*        Input Fields       */}
         {/* ========================= */}
