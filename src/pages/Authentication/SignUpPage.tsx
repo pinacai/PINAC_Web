@@ -53,8 +53,14 @@ const SignUpPage: React.FC = () => {
     const appAuth = searchParams.get("app-auth");
     if (appAuth === "true") {
       const token = await userCredential.user.getIdToken();
-      const encodedToken = encodeURIComponent(token);
-      window.location.href = `pinac-workspace://auth?token=${encodedToken}`;
+      const userData = {
+        token: token,
+        displayName: userCredential.user.displayName,
+        email: userCredential.user.email,
+        photoURL: userCredential.user.photoURL,
+      };
+      const encodedData = encodeURIComponent(JSON.stringify(userData));
+      window.location.href = `pinac-workspace://auth?data=${encodedData}`;
       navigate("/pinac-workspace");
     } else {
       navigate("/pinac-workspace");
