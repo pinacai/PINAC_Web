@@ -16,7 +16,6 @@ const Navbar: React.FC = () => {
   // Subscribe to auth state changes
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      console.log(currentUser);
       setUser(currentUser);
     });
 

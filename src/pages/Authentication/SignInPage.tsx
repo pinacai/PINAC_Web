@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
+import { UserCredential } from "@firebase/auth";
 import { FirebaseContext } from "../../context/Firebase";
 import Notification from "./components/Notification";
 import styles from "./index.module.css";
@@ -15,7 +16,7 @@ interface NotificationState {
   show: boolean;
 }
 
-const LoginPage: React.FC = () => {
+const SignInPage: React.FC = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const firebase = useContext(FirebaseContext);
@@ -35,11 +36,14 @@ const LoginPage: React.FC = () => {
     });
   };
 
-  // check for redirect url
-  const checkRedirectUrl = () => {
-    const redirectUrl = searchParams.get("redirect");
-    if (redirectUrl) {
-      navigate(redirectUrl);
+  // handle auth flow for desktop App
+  const handleAuthFlow = async (userCredential: UserCredential) => {
+    const appAuth = searchParams.get("app-auth");
+    if (appAuth === "true") {
+      const token = await userCredential.user.getIdToken();
+      const encodedToken = encodeURIComponent(token);
+      window.location.href = `pinac-workspace://auth?token=${encodedToken}`;
+      navigate("/pinac-workspace");
     } else {
       navigate("/pinac-workspace");
     }
@@ -49,22 +53,24 @@ const LoginPage: React.FC = () => {
   const handleSignIn = async (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     try {
-      const result = await firebase?.signInWithEmail(email, password);
-      if (typeof result === "string") {
-        // Handle different Firebase error messages
-        if (result.includes("user-not-found")) {
-          showNotification("User not detected", "error");
-        } else if (
-          result.includes("wrong-password") ||
-          result.includes("invalid-credential")
-        ) {
-          showNotification("Incorrect password", "error");
+      if (firebase) {
+        const result = await firebase?.signInWithEmail(email, password);
+        if (typeof result === "string") {
+          // Handle different Firebase error messages
+          if (result.includes("user-not-found")) {
+            showNotification("User not detected", "error");
+          } else if (
+            result.includes("wrong-password") ||
+            result.includes("invalid-credential")
+          ) {
+            showNotification("Incorrect password", "error");
+          } else {
+            showNotification("Sorry, something went wrong", "error");
+          }
         } else {
-          showNotification("Sorry, something went wrong", "error");
+          showNotification("Logged in successfully", "success");
+          setTimeout(() => handleAuthFlow(result), 1500);
         }
-      } else {
-        showNotification("Logged in successfully", "success");
-        setTimeout(() => checkRedirectUrl(), 1500);
       }
     } catch (error) {
       showNotification("Sorry, something went wrong", "error");
@@ -77,9 +83,11 @@ const LoginPage: React.FC = () => {
   ) => {
     event.preventDefault();
     try {
-      await firebase?.authenticateWithGoogle();
-      showNotification("Logged in successfully", "success");
-      setTimeout(() => checkRedirectUrl(), 1500);
+      if (firebase) {
+        const userCredential = await firebase.authenticateWithGoogle();
+        showNotification("Logged in successfully", "success");
+        setTimeout(() => handleAuthFlow(userCredential), 1500);
+      }
     } catch (error) {
       showNotification("Sorry, something went wrong", "error");
     }
@@ -156,4 +164,4 @@ const LoginPage: React.FC = () => {
   );
 };
 
-export default LoginPage;
+export default SignInPage;

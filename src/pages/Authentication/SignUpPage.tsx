@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
+import { UserCredential } from "@firebase/auth";
 import { FirebaseContext } from "../../context/Firebase";
 import Notification from "./components/Notification";
 import styles from "./index.module.css";
@@ -37,11 +38,24 @@ const SignUpPage: React.FC = () => {
     });
   };
 
-  // check for redirect url
-  const checkRedirectUrl = () => {
-    const redirectUrl = searchParams.get("redirect");
-    if (redirectUrl) {
-      navigate(redirectUrl);
+  //
+  const handleLoginClick = () => {
+    const appAuth = searchParams.get("app-auth");
+    if (appAuth === "true") {
+      navigate("/signin/?app-auth=true");
+    } else {
+      navigate("/signin");
+    }
+  };
+
+  // handle auth flow for desktop App
+  const handleAuthFlow = async (userCredential: UserCredential) => {
+    const appAuth = searchParams.get("app-auth");
+    if (appAuth === "true") {
+      const token = await userCredential.user.getIdToken();
+      const encodedToken = encodeURIComponent(token);
+      window.location.href = `pinac-workspace://auth?token=${encodedToken}`;
+      navigate("/pinac-workspace");
     } else {
       navigate("/pinac-workspace");
     }
@@ -52,9 +66,15 @@ const SignUpPage: React.FC = () => {
     event.preventDefault();
 
     try {
-      await firebase?.signUpWithEmail(name, email, password);
-      showNotification("Account created successfully!", "success");
-      setTimeout(() => checkRedirectUrl(), 1500);
+      if (firebase) {
+        const userCredential = await firebase.signUpWithEmail(
+          name,
+          email,
+          password
+        );
+        showNotification("Account created successfully!", "success");
+        setTimeout(() => handleAuthFlow(userCredential), 1500);
+      }
     } catch (error: any) {
       // Handle specific Firebase error cases
       if (error.code === "auth/email-already-in-use") {
@@ -75,9 +95,11 @@ const SignUpPage: React.FC = () => {
   ) => {
     event.preventDefault();
     try {
-      await firebase?.authenticateWithGoogle();
-      showNotification("Account created successfully!", "success");
-      setTimeout(() => checkRedirectUrl(), 1500);
+      if (firebase) {
+        const userCredential = await firebase.authenticateWithGoogle();
+        showNotification("Account created successfully!", "success");
+        setTimeout(() => handleAuthFlow(userCredential), 1500);
+      }
     } catch (error) {
       showNotification("Sorry, something went wrong", "error");
     }
@@ -160,9 +182,9 @@ const SignUpPage: React.FC = () => {
         {/* ============================= */}
         <p className={styles.p}>
           Already have a account?{" "}
-          <a href="/login" className={styles.span}>
+          <span className={styles.span} onClick={handleLoginClick}>
             Login
-          </a>
+          </span>
         </p>
       </form>
     </section>
