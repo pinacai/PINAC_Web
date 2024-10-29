@@ -49,9 +49,9 @@ const SignInPage: React.FC = () => {
       };
       const encodedData = encodeURIComponent(JSON.stringify(userData));
       window.location.href = `pinac-workspace://auth?data=${encodedData}`;
-      navigate("/pinac-workspace");
+      navigate("/");
     } else {
-      navigate("/pinac-workspace");
+      navigate("/");
     }
   };
 
