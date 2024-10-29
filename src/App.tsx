@@ -2,8 +2,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/index";
 import SignUpPage from "./pages/Authentication/SignUpPage";
 import SignInPage from "./pages/Authentication/SignInPage";
-import PinacWorkspace from "./pages/PINAC-Workspace/index";
-import Donate from "./pages/Donate/index";
 import "./App.css";
 
 function App() {
@@ -11,10 +9,9 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/pinac-workspace" element={<PinacWorkspace />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/signin" element={<SignInPage />} />
-        <Route path="/donate" element={<Donate />} />
+        <Route path="/profile" element={<></>} />
         <Route path="/support" element={<></>} />
         <Route path="/docs" element={<></>} />
       </Routes>

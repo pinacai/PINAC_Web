@@ -1,9 +1,5 @@
 <div align="center">
 
-<h1 style="border-bottom: none">
-    <b><a href="https://github.com/pinacai">PINAC Web</a></b>
-</h1>
-
 ![Repo Banner](https://github.com/user-attachments/assets/17d588ca-48ff-4afd-ae15-f82d52803cc6)
 
 <br>
@@ -13,7 +9,7 @@
 ![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)
 [![View Repositories](https://img.shields.io/badge/View-Our_Repositories-blue?logo=GitHub)](https://github.com/pinacai?tab=repositories)
 
-Building the Official Website of the Organization
+Building the Website Page for PINAC Workspace
 
 ![](https://skillicons.dev/icons?i=react,vite,typescript,firebase)
 
@@ -39,8 +35,8 @@ https://www.figma.com/design/jRPYU80RWHxfvz6cpYbsMI/PINAC-Web?node-id=0-1&t=yq0L
     │   │   ├── Home/
     │   │   │   ├── sections/                       # page sections
     │   │   │   │   ├── HeroSection.tsx
-    │   │   │   │   ├── AboutSection.tsx
-    │   │   │   │   ├── ProjectsSection.tsx
+    │   │   │   │   ├── AppPreview.tsx
+    │   │   │   │   ├── FeatureSection.tsx
     │   │   │   │   └── (other sections)
     │   │   │   ├── components/                     # componets unique for this page
     │   │   │   │   ├── Navbar.tsx                  # navbar is different for each page
@@ -48,8 +44,7 @@ https://www.figma.com/design/jRPYU80RWHxfvz6cpYbsMI/PINAC-Web?node-id=0-1&t=yq0L
     │   │   │   ├── styles/                         # css for all different tsx files with the same name
     │   │   │   └── index.tsx
     |   |   |
-    │   │   ├── PINAC-Workspace/                    # page for our project PINAC_Workspace
-    │   │   │   └──(same struct. as Home)
+    │   │   ├── Profile/                            # same file structure as Home
     │   │   └── Docs/                               # Documentations
     │   │       └──(will be unique struct.)
     │   ├── App.css                                 # some global styles

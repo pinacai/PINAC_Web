@@ -6,12 +6,12 @@
 .sectionContainer {
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
 }
 
-.footer {
+.restOfContent {
+  z-index: 200;
+  margin-top: 100vh;
   display: flex;
-  justify-content: center;
-  margin-top: 100px;
-  margin-bottom: 40px;
+  flex-direction: column;
+  align-items: center;
 }

@@ -1,12 +1,9 @@
 import React from "react";
 import Navbar from "./components/Navbar";
 import HeroSection from "./sections/HeroSection";
-import AboutSection from "./sections/AboutSection";
-import ProjectSection from "./sections/ProjectSection";
+import AppPreview from "./sections/AppPreview";
+import FeatureSection from "./sections/FeatureSection";
 import styles from "./index.module.css";
-
-// icons
-import { LuWaves } from "react-icons/lu";
 
 const Home: React.FC = () => {
   return (
@@ -16,10 +13,9 @@ const Home: React.FC = () => {
       </div>
       <div className={styles.sectionContainer}>
         <HeroSection />
-        <AboutSection />
-        <ProjectSection />
-        <div className={styles.footer}>
-          <LuWaves size={30} color="white" />
+        <div className={styles.restOfContent}>
+          <AppPreview />
+          <FeatureSection />
         </div>
       </div>
     </>
