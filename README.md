@@ -73,7 +73,17 @@ https://www.figma.com/design/jRPYU80RWHxfvz6cpYbsMI/PINAC-Web?node-id=0-1&t=yq0L
 
 ## 🎉 Contributing
 
-I highly welcome contributions! You can contribute to this project in different ways: _*Build design on Figma*_, _*Contribute to the codebase*_, or _*provide functionality ideas*_!
+We highly welcome contributions! Please follow the steps if you're interested.
+
+1. Star the repository
+2. Fork the repository on GitHub.
+3. Clone the project to your machine.
+4. create your own branch.
+5. Commit changes to your branch.
+6. Push your work back up to your fork.
+7. Submit a Pull request so that we can review your changes
+
+Also you can contribute in other ways: _*Building design on Figma*_ and _*providing functionality ideas*_!
 
 ## 📄 License
 
