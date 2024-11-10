@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { auth } from "../../../context/Firebase";
+import { auth } from "../../../Firebase/Firebase";
 import { onAuthStateChanged, User, signOut } from "firebase/auth";
 import styles from "./styles/Navbar.module.css";
 

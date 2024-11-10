@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { UserCredential } from "@firebase/auth";
-import { FirebaseContext } from "../../context/Firebase";
+import { FirebaseContext } from "../../Firebase/Firebase";
 import Notification from "./components/Notification";
 import styles from "./index.module.css";
 
