@@ -1,3 +1,6 @@
+> [!IMPORTANT]  
+> This project will be temporarily suspended for a few days as we evaluate the possibility of migrating from React to Next.js.
+
 <div align="center">
 
 ![header](https://github.com/user-attachments/assets/d9d7c863-96c0-4cbf-bc3c-617d05664c01)
