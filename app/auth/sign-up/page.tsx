@@ -116,91 +116,92 @@ const SignUpPage = () => {
   // =========================================== //
   return (
     <main>
-        <section className={styles.container}>
-          {notification.show && (
-            <Notification
-              message={notification.message}
-              type={notification.type}
-              onClose={() =>
-                setNotification((prev) => ({ ...prev, show: false }))
-              }
+      <section className={styles.container}>
+        {notification.show && (
+          <Notification
+            message={notification.message}
+            type={notification.type}
+            onClose={() =>
+              setNotification((prev) => ({ ...prev, show: false }))
+            }
+          />
+        )}
+        <form className={styles.form}>
+          {/*        Input Fields       */}
+          {/* ========================= */}
+          <div className={styles.flexColumn}>
+            <label>Name </label>
+          </div>
+          <div className={styles.inputForm}>
+            <RiContactsLine size={25} color="#ececec" />
+            <input
+              type="text"
+              value={name}
+              className={styles.input}
+              placeholder="Enter your Name"
+              onChange={(event) => setName(event.target.value)}
             />
-          )}
-          <form className={styles.form}>
-            {/*        Input Fields       */}
-            {/* ========================= */}
-            <div className={styles.flexColumn}>
-              <label>Name </label>
-            </div>
-            <div className={styles.inputForm}>
-              <RiContactsLine size={25} color="#ececec" />
-              <input
-                type="text"
-                value={name}
-                className={styles.input}
-                placeholder="Enter your Name"
-                onChange={(event) => setName(event.target.value)}
-              />
-            </div>
-            <div className={styles.flexColumn}>
-              <label>Email </label>
-            </div>
-            <div className={styles.inputForm}>
-              <MdAlternateEmail size={25} color="#ececec" />
-              <input
-                type="email"
-                value={email}
-                className={styles.input}
-                placeholder="Enter your Email"
-                onChange={(event) => setEmail(event.target.value)}
-              />
-            </div>
+          </div>
+          <div className={styles.flexColumn}>
+            <label>Email </label>
+          </div>
+          <div className={styles.inputForm}>
+            <MdAlternateEmail size={25} color="#ececec" />
+            <input
+              type="email"
+              value={email}
+              className={styles.input}
+              placeholder="Enter your Email"
+              onChange={(event) => setEmail(event.target.value)}
+            />
+          </div>
 
-            <div className={styles.flexColumn}>
-              <label>Password </label>
-            </div>
-            <div className={styles.inputForm}>
-              <IoLockClosedOutline size={25} color="#ececec" />
-              <input
-                type="password"
-                value={password}
-                className={styles.input}
-                placeholder="Enter your Password"
-                onChange={(event) => setPassword(event.target.value)}
-              />
-            </div>
-            {/*        SignUp Button        */}
-            {/* =========================== */}
-            <button className={styles.buttonSubmit} onClick={handleSignUp}>
-              Sign Up
+          <div className={styles.flexColumn}>
+            <label>Password </label>
+          </div>
+          <div className={styles.inputForm}>
+            <IoLockClosedOutline size={25} color="#ececec" />
+            <input
+              type="password"
+              value={password}
+              className={styles.input}
+              placeholder="Enter your Password"
+              onChange={(event) => setPassword(event.target.value)}
+            />
+          </div>
+          {/*        SignUp Button        */}
+          {/* =========================== */}
+          <button className={styles.buttonSubmit} onClick={handleSignUp}>
+            Sign Up
+          </button>
+          {/*          or Divider        */}
+          {/* ========================== */}
+          <div className={styles.divider}>
+            <span></span>
+            <span>or</span>
+            <span></span>
+          </div>
+          {/*        Google SignUp Button       */}
+          {/* ================================ */}
+          <div className={styles.flexRow}>
+            <button className={styles.googleBtn} onClick={handleGoogleSignUp}>
+              <FcGoogle size={25} />
+              Continue with Google
             </button>
-            {/*          or Divider        */}
-            {/* ========================== */}
-            <div className={styles.divider}>
-              <span></span>
-              <span>or</span>
-              <span></span>
-            </div>
-            {/*        Google SignUp Button       */}
-            {/* ================================ */}
-            <div className={styles.flexRow}>
-              <button className={styles.googleBtn} onClick={handleGoogleSignUp}>
-                <FcGoogle size={25} />
-                Continue with Google
-              </button>
-            </div>
-            {/*        Login Page Link        */}
-            {/* ============================= */}
-            <p className={styles.p}>
-              Already have a account?{" "}
-              <span className={styles.span} onClick={handleLoginClick}>
-                Login
-              </span>
-            </p>
-          </form>
-        </section>
+          </div>
+          {/*        Login Page Link        */}
+          {/* ============================= */}
+          <p className={styles.p}>
+            Already have a account?{" "}
+            <span className={styles.span} onClick={handleLoginClick}>
+              Login
+            </span>
+          </p>
+        </form>
+      </section>
     </main>
   );
 };
 
 export default SignUpPage;
+export const runtime = "edge"; // 'nodejs' | 'edge'
