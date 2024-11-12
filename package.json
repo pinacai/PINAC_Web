@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@cloudflare/next-on-pages": "^1.13.5",
     "@firebase/auth": "^1.8.0",
     "@types/firebase": "^2.4.32",
     "firebase": "^11.0.1",
