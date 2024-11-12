@@ -23,41 +23,53 @@ https://www.figma.com/design/jRPYU80RWHxfvz6cpYbsMI/PINAC-Web?node-id=0-1&t=yq0L
 
 ## 📂 File Structure
 
-    .
-    ├── src/
-    │   ├── assets/
-    │   ├── components/                             # common components
-    │   │    ├── styles/                            # css for all different tsx file
-    │   │    ├── Footer.tsx
-    │   │    └── (others)
-    |   |
-    │   ├── pages/
-    │   │   ├── Home/
-    │   │   │   ├── sections/                       # page sections
-    │   │   │   │   ├── HeroSection.tsx
-    │   │   │   │   ├── AppPreview.tsx
-    │   │   │   │   ├── FeatureSection.tsx
-    │   │   │   │   └── (other sections)
-    │   │   │   ├── components/                     # componets unique for this page
-    │   │   │   │   ├── Navbar.tsx                  # navbar is different for each page
-    │   │   │   │   └── (others)
-    │   │   │   ├── styles/                         # css for all different tsx files with the same name
-    │   │   │   └── index.tsx
-    |   |   |
-    │   │   ├── Profile/                            # same file structure as Home
-    │   │   └── Docs/                               # Documentations
-    │   │       └──(will be unique struct.)
-    │   ├── App.css                                 # some global styles
-    │   ├── App.tsx
-    │   └── index.tsx
-    └── index.html
+      .
+      ├─] .env.local (ignored)
+      ├── app/
+      │   ├── auth/
+      │   │   ├── auth.module.css
+      │   │   ├── sign-in/
+      │   │   │   └── page.tsx
+      │   │   └── sign-up/
+      │   │       └── page.tsx
+      │   ├── layout.tsx
+      │   └── page.tsx
+      ├── components/
+      │   ├── Navbar.tsx
+      │   ├── Notification.tsx
+      │   └── styles/
+      │       ├── Navbar.module.css
+      │       └── Notification.module.css
+      ├── firebase/
+      │   ├── config.tsx
+      │   └── firebaseContext.tsx
+      |
+      ├── next.config.mjs
+      ├── package-lock.json
+      ├── package.json
+      ├── public/
+      │   └── assets/
+      │       ├── fonts/
+      │       └── img/
+      ├── sections/
+      │   └── home/
+      │       ├── AppPreview.tsx
+      │       ├── FeatureSection.tsx
+      │       ├── HeroSection.tsx
+      │       └── styles/
+      │           ├── AppPreview.module.css
+      │           ├── FeatureSection.module.css
+      │           └── HeroSection.module.css
+      ├── styles/
+      │   └── globals.css
+      └── tsconfig.json
 
 ## 🚀 Getting Started
 
 1. Clone the Repository
 
    ```bash
-   git clone https://github.com/pinacai/PINAC_Web.git && cd PINAC_Web
+   git clone https://github.com/pinacai/pinac_web.git && cd pinac_web
    ```
 
 2. Install Node dependencies
@@ -87,4 +99,4 @@ Also you can contribute in other ways: _*Building design on Figma*_ and _*provid
 
 ## 📄 License
 
-PINAC Web is licensed under the **MIT License**. See the <a href="https://github.com/pinacai/PINAC_Web/blob/main/LICENSE">LICENSE</a> file for more details.
+PINAC Web is licensed under the **MIT License**. See the <a href="https://github.com/pinacai/pinac_web/blob/main/LICENSE">LICENSE</a> file for more details.
