@@ -28,4 +28,4 @@ export async function GET(request: NextRequest) {
   return NextResponse.json(protectedData);
 }
 
-export const runtime = "nodejs"; // 'nodejs' | 'edge'
+export const runtime = "edge"; // 'nodejs' | 'edge'
