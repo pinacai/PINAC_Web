@@ -27,3 +27,5 @@
 
 //   return NextResponse.json(protectedData);
 // }
+
+export const runtime = "edge"; // 'nodejs' | 'edge'
