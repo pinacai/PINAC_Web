@@ -1,31 +1,31 @@
-// import { NextRequest, NextResponse } from "next/server";
-// import { auth } from "@/firebase/server";
+import { NextRequest, NextResponse } from "next/server";
+import { auth } from "@/firebase/server";
 
-// export async function GET(request: NextRequest) {
-//   const authHeader = request.headers.get("authorization");
+export async function GET(request: NextRequest) {
+  const authHeader = request.headers.get("authorization");
 
-//   if (!authHeader || !authHeader.startsWith("Bearer ")) {
-//     throw new Error("Authorization token required");
-//   }
-//   const authToken = authHeader.split("Bearer ")[1];
+  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    throw new Error("Authorization token required");
+  }
+  const authToken = authHeader.split("Bearer ")[1];
 
-//   const decodedToken = await auth.verifyIdToken(authToken)
+  const decodedToken = await auth.verifyIdToken(authToken)
 
-//   if (!decodedToken) {
-//     return NextResponse.json(
-//       { error: 'Unauthorized' },
-//       { status: 401 }
-//     );
-//   }
+  if (!decodedToken) {
+    return NextResponse.json(
+      { error: 'Unauthorized' },
+      { status: 401 }
+    );
+  }
 
-//   // Your protected data logic here
-//   const protectedData = {
-//     message: "This is protected data",
-//     userId: decodedToken.uid,
-//     timestamp: new Date().toISOString(),
-//   };
+  // Your protected data logic here
+  const protectedData = {
+    message: "This is protected data",
+    userId: decodedToken.uid,
+    timestamp: new Date().toISOString(),
+  };
 
-//   return NextResponse.json(protectedData);
-// }
+  return NextResponse.json(protectedData);
+}
 
-export const runtime = "edge"; // 'nodejs' | 'edge'
+export const runtime = "nodejs"; // 'nodejs' | 'edge'
