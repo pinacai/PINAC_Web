@@ -26,6 +26,7 @@ https://www.figma.com/design/jRPYU80RWHxfvz6cpYbsMI/PINAC-Web?node-id=0-1&t=yq0L
       .
       ├─] .env.local (ignored)
       ├── app/
+      │   ├── api/users/
       │   ├── auth/
       │   │   ├── auth.module.css
       │   │   ├── sign-in/
@@ -42,6 +43,7 @@ https://www.figma.com/design/jRPYU80RWHxfvz6cpYbsMI/PINAC-Web?node-id=0-1&t=yq0L
       │       └── Notification.module.css
       ├── firebase/
       │   ├── config.tsx
+      │   ├── server.ts
       │   └── firebaseContext.tsx
       |
       ├── next.config.mjs
