@@ -204,4 +204,3 @@ const SignUpPage = () => {
 };
 
 export default SignUpPage;
-export const runtime = "edge"; // 'nodejs' | 'edge'
