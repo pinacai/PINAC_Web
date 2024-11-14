@@ -3,6 +3,8 @@ import { Suspense } from "react";
 import { FirebaseProvider } from "@/firebase/firebaseContext";
 import "@/styles/globals.css";
 
+export const runtime = "edge"; // 'nodejs' | 'edge'
+
 export const metadata: Metadata = {
   title: "Pinac Workspace",
   description: "Official website of pinac workspace",

@@ -177,3 +177,4 @@ const SignInPage = () => {
 };
 
 export default SignInPage;
+export const runtime = "edge"; // 'nodejs' | 'edge'

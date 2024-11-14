@@ -1,27 +1,21 @@
-import {
-  cert,
-  getApps,
-  initializeApp,
-  ServiceAccount,
-} from "firebase-admin/app";
-import { Auth, getAuth } from "firebase-admin/auth";
+import { getFirebaseAuth } from "next-firebase-auth-edge";
 
-// Initialize Firebase Admin
-let auth: Auth;
-const serviceAccount = process.env.FIREBASE_SERVICE_ACCOUNT;
+let firebaseAuth: ReturnType<typeof getFirebaseAuth> | null = null;
 
-try {
-  const currentApps = getApps();
-  if (serviceAccount && currentApps.length <= 0) {
-    const app = initializeApp({
-      credential: cert(JSON.parse(serviceAccount) as ServiceAccount),
-    });
-    auth = getAuth(app);
-  } else {
-    auth = getAuth(currentApps[0]);
+const getFirebaseAuthInstance = () => {
+  if (!firebaseAuth) {
+    firebaseAuth = getFirebaseAuth(
+      {
+        projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || "",
+        privateKey: process.env.FIREBASE_PRIVATE_KEY || "",
+        clientEmail: process.env.FIREBASE_CLIENT_EMAIL || "",
+      },
+      process.env.NEXT_PUBLIC_FIREBASE_API_KEY || ""
+    );
   }
-} catch (error) {
-  console.error(error);
-}
+  return firebaseAuth;
+};
 
-export { auth };
+const { verifyIdToken } = getFirebaseAuthInstance();
+
+export const verifyRequest = async (token: string) => verifyIdToken(token);

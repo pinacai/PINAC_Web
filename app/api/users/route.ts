@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { auth } from "@/firebase/server";
+import { verifyRequest } from "@/firebase/server";
 
 export async function GET(request: NextRequest) {
   const authHeader = request.headers.get("authorization");
@@ -9,13 +9,10 @@ export async function GET(request: NextRequest) {
   }
   const authToken = authHeader.split("Bearer ")[1];
 
-  const decodedToken = await auth.verifyIdToken(authToken)
+  const decodedToken = await verifyRequest(authToken);
 
   if (!decodedToken) {
-    return NextResponse.json(
-      { error: 'Unauthorized' },
-      { status: 401 }
-    );
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
   // Your protected data logic here
@@ -27,3 +24,5 @@ export async function GET(request: NextRequest) {
 
   return NextResponse.json(protectedData);
 }
+
+export const runtime = "edge"; // 'nodejs' | 'edge'
