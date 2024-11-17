@@ -171,7 +171,7 @@ const SignInPage = () => {
             </Link>
           </p>
         </form>
-        </section>
+      </section>
     </main>
   );
 };

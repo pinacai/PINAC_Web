@@ -154,7 +154,7 @@ const Navbar  = () => {
           ) : (
             <button
               id={styles.signinButton}
-              onClick={() => router.push("/auth/sign-up")}
+              onClick={() => router.push("/auth/sign-in")}
             >
               Sign In
             </button>
