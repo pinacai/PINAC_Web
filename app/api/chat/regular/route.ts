@@ -24,24 +24,22 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const chatData = await req.json().catch(() => null);
-  if (!chatData) {
+  const body = await req.json().catch(() => null);
+  if (!body) {
     return NextResponse.json(
       { error: "BAD_REQUEST", message: "Invalid request body" },
       { status: 400 }
     );
   }
-  const userInput = chatData.input;
-  chatData.messages.push({ role: "user", content: userInput });
-  const responseData: any = await fetch(`${process.env.AI_SERVER_URL}`, {
+  const responseData: any = await fetch(`${process.env.REGULAR_AI_SERVER_URL}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(chatData.messages),
+    body: JSON.stringify(body),
   });
-  const response = await responseData.json()[0].response.response;
-  return NextResponse.json({ user: userInput, assistant: response });
+  const response = await responseData.json().response;
+  return NextResponse.json({ user: body.userInput, assistant: response });
 }
 
 export const runtime = "edge"; // 'nodejs' | 'edge'
