@@ -53,9 +53,11 @@ const SignUpPage = () => {
   const handleAuthFlow = async (userCredential: UserCredential) => {
     const appAuth = searchParams.get("app-auth");
     if (appAuth === "true") {
-      const token = await userCredential.user.getIdToken();
+      const idToken = await userCredential.user.getIdToken();
+      const refreshToken = userCredential.user.refreshToken;
       const userData = {
-        token: token,
+        idToken: idToken,
+        refreshToken: refreshToken,
         displayName: userCredential.user.displayName,
         email: userCredential.user.email,
         photoURL: userCredential.user.photoURL,
