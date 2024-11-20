@@ -44,9 +44,11 @@ const SignInPage = () => {
     if (appAuth === "true") {
       const idToken = await userCredential.user.getIdToken();
       const refreshToken = userCredential.user.refreshToken;
+      const webApiKey = process.env.NEXT_PUBLIC_FIREBASE_WEB_API_KEY;
       const userData = {
         idToken: idToken,
         refreshToken: refreshToken,
+        webApiKey: webApiKey,
         displayName: userCredential.user.displayName,
         email: userCredential.user.email,
         photoURL: userCredential.user.photoURL,
