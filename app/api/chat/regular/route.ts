@@ -38,8 +38,8 @@ export async function POST(req: NextRequest) {
     },
     body: JSON.stringify(body),
   });
-  const response = await responseData.json().response;
-  return NextResponse.json({ user: body.userInput, assistant: response });
+  const response = await responseData.json();
+  return NextResponse.json({ user: body.userInput, assistant: response.response });
 }
 
 export const runtime = "edge"; // 'nodejs' | 'edge'

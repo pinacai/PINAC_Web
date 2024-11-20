@@ -37,16 +37,20 @@ export async function POST(req: NextRequest) {
       userInput
     )}`
   );
-  body.promptName = promptData.json().promptName;
-  const responseData: any = await fetch(`${process.env.PROMPT_MASTER_AI_SERVER_URL}`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(body),
-  });
-  const response = await responseData.json().response;
-  return NextResponse.json({ user: userInput, assistant: response });
+  const promptName = promptData.json();
+  body.promptName = promptName.promptName;
+  const responseData: any = await fetch(
+    `${process.env.PROMPT_MASTER_AI_SERVER_URL}`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    }
+  );
+  const response = await responseData.json();
+  return NextResponse.json({ user: userInput, assistant: response.response });
 }
 
 export const runtime = "edge"; // 'nodejs' | 'edge'
