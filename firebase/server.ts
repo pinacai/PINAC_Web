@@ -10,7 +10,7 @@ const getFirebaseAuthInstance = () => {
         privateKey: process.env.FIREBASE_PRIVATE_KEY || "",
         clientEmail: process.env.FIREBASE_CLIENT_EMAIL || "",
       },
-      process.env.NEXT_PUBLIC_FIREBASE_API_KEY || ""
+      process.env.NEXT_PUBLIC_FIREBASE_WEB_API_KEY || ""
     );
   }
   return firebaseAuth;
