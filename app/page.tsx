@@ -7,12 +7,13 @@ import "@/styles/globals.css";
 const Home = () => {
   return (
     <>
-      <div className="setInMiddle">
+      <div className="flex justify-center">
         <Navbar />
       </div>
-      <main className="sectionContainer">
+      <main className="flex flex-col">
         <HeroSection />
-        <div className="restOfContent">
+        {/* z-index: 200; originally for below div */}
+        <div className="flex flex-col items-center mt-[100vh] z-50">
           <AppPreview />
           <FeatureSection />
         </div>

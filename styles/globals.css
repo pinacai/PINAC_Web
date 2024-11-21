@@ -1,4 +1,6 @@
-/* ========== fonts =========== */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @import url("https://fonts.googleapis.com/css2?family=Carme&display=swap");
 
@@ -6,14 +8,15 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Carme&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-@font-face {
-  font-family: "nasalization";
-  src: url("../public/assets/fonts/nasalization-rg.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
+@layer base {
+  @font-face {
+    font-family: "nasalization";
+    font-display: normal;
+    font-weight: normal;
+    font-style: normal;
+    src: url("../public/assets/fonts/nasalization-rg.otf") format("opentype");
+  }
 }
-
-/* ============ Global Styles ========== */
 
 :root {
   --primary-color: #090c13;
@@ -43,20 +46,6 @@ body::-webkit-scrollbar-thumb {
   border-radius: 50px;
 }
 
-.setInMiddle {
-  display: flex;
-  justify-content: center;
-}
-
-.sectionContainer {
-  display: flex;
-  flex-direction: column;
-}
-
-.restOfContent {
-  z-index: 200;
-  margin-top: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+input:focus {
+  outline: none;
 }

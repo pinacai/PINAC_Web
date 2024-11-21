@@ -108,7 +108,7 @@ const SignInPage = () => {
   // =========================================== //
   return (
     <main>
-      <section className={styles.container}>
+      <section className="h-lvh flex justify-center items-center bg-primary">
         {notification.show && (
           <Notification
             message={notification.message}
@@ -118,30 +118,31 @@ const SignInPage = () => {
             }
           />
         )}
-        <form className={styles.form}>
+        <form className="flex flex-col p-8 w-[400px] rounded-2xl bg-form shadow-glass">
           {/*        Input Fields       */}
           {/* ========================= */}
-          <div className={styles.flexColumn}>
+          {/*  Email   */}
+          <div className="mx-0.5 my-4 font-Poppins font-medium text-base text-light">
             <label>Email </label>
           </div>
-          <div className={styles.inputForm}>
+          <div className="h-12 pl-2.5 rounded-lg flex items-center shadow-glass focus-within:shadow-none focus-within:border-1.5 focus-within:border-highlight">
             <MdAlternateEmail size={25} color="#ececec" />
             <input
               type="email"
-              className={styles.input}
+              className="h-full w-10/12 ml-2.5 rounded-lg text-light bg-form"
               placeholder="Enter your Email"
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-
-          <div className={styles.flexColumn}>
+          {/*  Password   */}
+          <div className="mx-0.5 my-4 font-Poppins font-medium text-base text-light">
             <label>Password </label>
           </div>
-          <div className={styles.inputForm}>
+          <div className="h-12 pl-2.5 rounded-lg flex items-center shadow-glass focus-within:shadow-none focus-within:border-1.5 focus-within:border-highlight">
             <IoLockClosedOutline size={25} color="#ececec" />
             <input
               type="password"
-              className={styles.input}
+              className="h-full w-10/12 ml-2.5 rounded-lg text-light bg-form"
               placeholder="Enter your Password"
               onChange={(e) => setPassword(e.target.value)}
             />
