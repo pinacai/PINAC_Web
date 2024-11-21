@@ -14,6 +14,8 @@ export default {
         form: "#101010",
         light: "#ececec",
         highlight: "#2d79f3",
+        LoginButton: "rgba(108, 108, 108, 0.25)",
+        LoginButtonHover: "rgba(108, 108, 108, 0.35)",
       },
       fontFamily: {
         Carme: ["Carme", "sans-serif"],

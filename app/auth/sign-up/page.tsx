@@ -4,7 +4,6 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { UserCredential } from "@firebase/auth";
 import { FirebaseContext } from "@/firebase/firebaseContext";
 import Notification from "@/components/Notification";
-import styles from "../auth.module.css";
 
 // icons
 import { RiContactsLine } from "react-icons/ri";
@@ -120,7 +119,7 @@ const SignUpPage = () => {
   // =========================================== //
   return (
     <main>
-      <section className={styles.container}>
+      <section className="h-lvh flex justify-center items-center bg-primary">
         {notification.show && (
           <Notification
             message={notification.message}
@@ -130,74 +129,83 @@ const SignUpPage = () => {
             }
           />
         )}
-        <form className={styles.form}>
+        <form className="flex flex-col p-8 w-[400px] rounded-2xl bg-form shadow-glass">
           {/*        Input Fields       */}
           {/* ========================= */}
-          <div className={styles.flexColumn}>
+          <div className="mx-0.5 my-4 font-Poppins font-medium text-base text-light">
             <label>Name </label>
           </div>
-          <div className={styles.inputForm}>
+          <div className="h-12 pl-2.5 rounded-lg flex items-center shadow-glass focus-within:shadow-none focus-within:border-1.5 focus-within:border-highlight">
             <RiContactsLine size={25} color="#ececec" />
             <input
               type="text"
               value={name}
-              className={styles.input}
+              className="h-full w-10/12 ml-2.5 rounded-lg text-light bg-form"
               placeholder="Enter your Name"
               onChange={(event) => setName(event.target.value)}
             />
           </div>
-          <div className={styles.flexColumn}>
+          <div className="mx-0.5 my-4 font-Poppins font-medium text-base text-light">
             <label>Email </label>
           </div>
-          <div className={styles.inputForm}>
+          <div className="h-12 pl-2.5 rounded-lg flex items-center shadow-glass focus-within:shadow-none focus-within:border-1.5 focus-within:border-highlight">
             <MdAlternateEmail size={25} color="#ececec" />
             <input
               type="email"
               value={email}
-              className={styles.input}
+              className="h-full w-10/12 ml-2.5 rounded-lg text-light bg-form"
               placeholder="Enter your Email"
               onChange={(event) => setEmail(event.target.value)}
             />
           </div>
 
-          <div className={styles.flexColumn}>
+          <div className="mx-0.5 my-4 font-Poppins font-medium text-base text-light">
             <label>Password </label>
           </div>
-          <div className={styles.inputForm}>
+          <div className="h-12 pl-2.5 rounded-lg flex items-center shadow-glass focus-within:shadow-none focus-within:border-1.5 focus-within:border-highlight">
             <IoLockClosedOutline size={25} color="#ececec" />
             <input
               type="password"
               value={password}
-              className={styles.input}
+              className="h-full w-10/12 ml-2.5 rounded-lg text-light bg-form"
               placeholder="Enter your Password"
               onChange={(event) => setPassword(event.target.value)}
             />
           </div>
           {/*        SignUp Button        */}
           {/* =========================== */}
-          <button className={styles.buttonSubmit} onClick={handleSignUp}>
+          <button
+            className="h-12 w-full mt-5 mb-2.5 rounded-lg font-medium text-base text-light bg-LoginButton cursor-pointer hover:bg-LoginButtonHover"
+            onClick={handleSignUp}
+          >
             Sign Up
           </button>
           {/*          or Divider        */}
           {/* ========================== */}
-          <div className={styles.divider}>
-            <span></span>
+          <div className="flex justify-between items-center text-base text-light gap-x-2.5">
+            <span className="block h-px w-full bg-[#dbdbdb]"></span>
             <span>or</span>
-            <span></span>
+            <span className="block h-px w-full bg-[#dbdbdb]"></span>
           </div>
           {/*        Google SignUp Button       */}
           {/* ================================ */}
-          <div className={styles.flexRow}>
-            <button className={styles.googleBtn} onClick={handleGoogleSignUp}>
+          <div className="flex items-center justify-between gap-2.5">
+            <button
+              className="h-12 w-full mt-2.5 flex items-center justify-center rounded-lg font-medium gap-2.5 bg-light cursor-pointer"
+              onClick={handleGoogleSignUp}
+            >
               <FcGoogle size={25} />
-              Continue with Google
+              Sign In with Google
             </button>
           </div>
           {/*        Login Page Link        */}
           {/* ============================= */}
-          <p className={styles.p}>
+          <p className="my-1 text-center text-sm text-light">
             Already have a account?{" "}
-            <span className={styles.span} onClick={handleLoginClick}>
+            <span
+              className="ml-1 no-underline text-blue-500 text-sm font-medium cursor-pointer"
+              onClick={handleLoginClick}
+            >
               Login
             </span>
           </p>

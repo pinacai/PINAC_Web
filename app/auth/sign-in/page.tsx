@@ -5,7 +5,6 @@ import { UserCredential } from "@firebase/auth";
 import { FirebaseContext } from "@/firebase/firebaseContext";
 import Notification from "@/components/Notification";
 import Link from "next/link";
-import styles from "../auth.module.css";
 
 // icons
 import { MdAlternateEmail } from "react-icons/md";
@@ -149,29 +148,35 @@ const SignInPage = () => {
           </div>
           {/*        Login Button        */}
           {/* =========================== */}
-          <button className={styles.buttonSubmit} onClick={handleSignIn}>
+          <button
+            className="h-12 w-full mt-5 mb-2.5 rounded-lg font-medium text-base text-light bg-LoginButton cursor-pointer hover:bg-LoginButtonHover"
+            onClick={handleSignIn}
+          >
             Login
           </button>
           {/*          or Divider        */}
           {/* ========================== */}
-          <div className={styles.divider}>
-            <span></span>
+          <div className="flex justify-between items-center text-base text-light gap-x-2.5">
+            <span className="block h-px w-full bg-[#dbdbdb]"></span>
             <span>or</span>
-            <span></span>
+            <span className="block h-px w-full bg-[#dbdbdb]"></span>
           </div>
           {/*        Google login Button       */}
           {/* ================================ */}
-          <div className={styles.flexRow}>
-            <button className={styles.googleBtn} onClick={handleGoogleSignIn}>
+          <div className="flex items-center justify-between gap-2.5">
+            <button
+              className="h-12 w-full mt-2.5 flex items-center justify-center rounded-lg font-medium gap-2.5 bg-light cursor-pointer"
+              onClick={handleGoogleSignIn}
+            >
               <FcGoogle size={25} />
               Sign In with Google
             </button>
           </div>
           {/*        SignUp Page Link        */}
           {/* ============================= */}
-          <p className={styles.p}>
-            Dont have any account?{" "}
-            <Link href="/auth/sign-up" className={styles.span}>
+          <p className="my-1 text-center text-sm text-light">
+            Don&apos;t have any account?{" "}
+            <Link href="/auth/sign-up" className="ml-1 no-underline text-blue-500 text-sm font-medium cursor-pointer">
               SignUp
             </Link>
           </p>
