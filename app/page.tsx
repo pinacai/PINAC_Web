@@ -12,7 +12,6 @@ const Home = () => {
       </div>
       <main className="flex flex-col">
         <HeroSection />
-        {/* z-index: 200; originally for below div */}
         <div className="flex flex-col items-center mt-[100vh] z-50">
           <AppPreview />
           <FeatureSection />

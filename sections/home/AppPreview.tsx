@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import styles from "./styles/AppPreview.module.css";
 
 // image
 import appImage from "@/public/assets/img/App Image.svg";
@@ -43,11 +42,14 @@ const AppPreview = () => {
   }, [lastScrollY]);
 
   return (
-    <div className={styles.imageVisible} ref={imageRef}>
+    <div
+      className="w-full flex justify-center items-center z-50"
+      ref={imageRef}
+    >
       <Image
         alt="app preview"
         src={appImage}
-        id={styles.appImage}
+        className="h-full max-w-[90%] rounded-2xl"
         style={bgGlow ? { boxShadow: "0 0 80px rgba(255, 255, 255, 0.3)" } : {}}
       />
     </div>
