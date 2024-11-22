@@ -1,6 +1,6 @@
 "use client";
 import { useEffect } from "react";
-import styles from "./styles/Notification.module.css";
+import styles from "./Notification.module.css";
 
 interface NotificationProps {
   message: string;

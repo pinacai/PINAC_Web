@@ -40,6 +40,7 @@ export default {
       },
       spacing: {
         "400px": "400px",
+        overFull: "calc(100% + 8px)",
       },
       borderWidth: {
         DEFAULT: "1px",
