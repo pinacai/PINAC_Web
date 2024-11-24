@@ -28,13 +28,15 @@ const HeroSection = () => {
         <Image
           alt="header design"
           src={headerImg}
-          className="w-1/2 object-cover absolute bottom-4 right-0"
+          priority={true}
+          className="h-auto w-1/2 object-cover absolute bottom-4 right-0"
         />
       </div>
       <Image
-        alt="planet image"
         src={planet}
-        className="w-full object-cover absolute top-[150px]"
+        alt="planet image"
+        priority={true}
+        className="object-cover absolute top-[150px] overflow-hidden"
       />
     </section>
   );

@@ -7,7 +7,7 @@ import "@/styles/globals.css";
 const Home = () => {
   return (
     <>
-      <div className="flex justify-center">
+      <div className="w-full flex justify-center">
         <Navbar />
       </div>
       <main className="flex flex-col">
