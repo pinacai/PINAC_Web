@@ -225,13 +225,13 @@ const Navbar = () => {
           {/* Hamburger Menu Button */}
           <button
             id="hamburgerButton"
-            className="xl:hidden h-full"
+            className="xl:hidden"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
-              <RxCross2 className="h-[30px] w-auto text-light" />
+              <RxCross2 size={36} className="text-light" />
             ) : (
-              <IoMenuOutline className="h-[30px] w-auto text-light" />
+              <IoMenuOutline size={36} className="text-light" />
             )}
           </button>
         </div>

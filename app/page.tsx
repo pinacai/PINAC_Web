@@ -2,7 +2,6 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/sections/home/HeroSection";
 import AppPreview from "@/sections/home/AppPreview";
 import FeatureSection from "@/sections/home/FeatureSection";
-import "@/styles/globals.css";
 
 const Home = () => {
   return (

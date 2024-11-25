@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Head from "next/head";
 import { Suspense } from "react";
 import { FirebaseProvider } from "@/firebase/firebaseContext";
-import "@/styles/globals.css";
+import "./globals.css";
 
 export const runtime = "edge"; // 'nodejs' | 'edge'
 

@@ -15,11 +15,12 @@ export default {
         md: "640px", // Medium screens
         lg: "768px", // Large screens
         xl: "900px", // Extra large screens
-        "2xl": "1024px", // Double extra large screens
+        "2xl": "1024px", // Double extra large screens - 1
+        "2xl-2": "1100px", // Double extra large screens - 2
+        "2xl-3": "1200px", // Double extra large screens - 3
         "3xl": "1280px", // Triple extra large screens
         "4xl": "1440px", // Quadruple extra large screens
       },
-
       colors: {
         primary: "#090c13",
         secondary: "#08b1f9",
