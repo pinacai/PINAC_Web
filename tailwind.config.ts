@@ -23,6 +23,7 @@ export default {
       },
       colors: {
         primary: "#090c13",
+        "glass-on-primary": "rgba(108, 108, 108, 0.1)",
         secondary: "#08b1f9",
         form: "#101010",
         light: "#ececec",

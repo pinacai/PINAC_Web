@@ -56,6 +56,25 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // Effect to handle body scroll lock
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      // Save current scroll position and lock scroll
+      const scrollY = window.scrollY;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = "100%";
+    } else {
+      // Restore scroll position when menu closes
+      const scrollY = document.body.style.top;
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      window.scrollTo(0, parseInt(scrollY || "0", 10) * -1);
+    }
+  }, [isMobileMenuOpen]);
+
+  //
   // function to handle logout
   const handleLogout = async () => {
     try {
@@ -75,7 +94,7 @@ const Navbar = () => {
   // NavLinks
   const NavLinks = ({ docName }: { docName: string }) => (
     <>
-      <li>
+      <li className="xl:p-0 pl-1">
         <Link
           href="#download"
           className="hover:border-b-2 hover:border-secondary"
@@ -84,7 +103,7 @@ const Navbar = () => {
           Download
         </Link>
       </li>
-      <li>
+      <li className="xl:p-0 pl-1">
         <Link
           href="#pricing"
           className="hover:border-b-2 hover:border-secondary"
@@ -93,7 +112,7 @@ const Navbar = () => {
           Pricing
         </Link>
       </li>
-      <li>
+      <li className="xl:p-0 pl-1">
         <Link
           href="#docs"
           className="hover:border-b-2 hover:border-secondary"
@@ -106,8 +125,8 @@ const Navbar = () => {
       {/* ================= */}
       <li className="w-full xl:w-auto">
         <button
-          className="h-[30px] w-full px-3 text-lg text-light font-Carme rounded-2xl bg-zinc-800 hover:bg-zinc-700
-                      flex items-center justify-center cursor-pointer"
+          className="xl:h-[30px] h-9 w-full px-3 text-xl text-light font-Carme bg-zinc-800 hover:bg-zinc-700
+                      flex items-center justify-center cursor-pointer xl:rounded-2xl rounded-lg"
           onClick={() => {
             handleClick();
             setIsMobileMenuOpen(false);
@@ -120,127 +139,130 @@ const Navbar = () => {
     </>
   );
 
-  // User Section after login or Signup button
+  //
   const UserSection = () => (
-    <li className="w-full xl:w-auto">
-      {user ? (
-        <div className="relative">
-          {user.photoURL ? (
-            <Image
-              src={user.photoURL}
-              alt="user"
-              height={36}
-              width={36}
-              id="userAvatar"
-              className="rounded-full cursor-pointer hover:opacity-80"
-              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            />
-          ) : (
-            <FaRegCircleUser
-              color="#ececec"
-              size={36}
-              id="userAvatar"
-              className="rounded-full cursor-pointer hover:opacity-80"
-              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            />
-          )}
-          {isDropdownOpen && (
+    <>
+      <div
+        className="flex items-center px-4 py-6  rounded-t-lg hover:bg-[#171c25] cursor-pointer"
+        onClick={() => {
+          router.push("/profile");
+          setIsDropdownOpen(false);
+        }}
+      >
+        {user?.photoURL ? (
+          <Image
+            src={user.photoURL}
+            alt="user"
+            height={43}
+            width={42}
+            className="rounded-full mr-3"
+          />
+        ) : (
+          <FaRegCircleUser
+            color="#ececec"
+            size={42}
+            className="rounded-full mr-3"
+          />
+        )}
+        <div className="flex flex-col">
+          <span className="font-medium text-white">
+            {user?.displayName || "User"}
+          </span>
+          <span className="text-sm text-zinc-400">{user?.email}</span>
+        </div>
+      </div>
+      <div className="h-[0.5px] bg-zinc-700" />
+      <button
+        className="block w-full py-3 px-4 text-left text-base leading-normal text-white font-Carme rounded-b-lg cursor-pointer hover:bg-[#171c25]"
+        onClick={handleLogout}
+      >
+        Logout
+      </button>
+    </>
+  );
+
+  return (
+    <nav className="w-full px-4 md:px-7 md:mt-7 mt-4 sticky z-50">
+      <div className="3xl:w-10/12 md:w-10/12 xs:w-full mx-auto flex flex-col xl:flex-row xl:items-end">
+        <div className="flex justify-between items-center">
+          <Image
+            src={Logo}
+            alt="Pinac Logo"
+            className="md:h-[30px] w-auto h-[25px]"
+          />
+
+          {/*     Mobile Menu Button     */}
+          {/* ========================== */}
+          <button
+            className="xl:hidden relative w-10 h-10 flex items-center justify-center"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
             <div
-              id="userDropdown"
-              className="w-[280px] py-2 top-overFull right-0 absolute leading-[90%] bg-[#0d1017] rounded-lg border-[1.5px] border-neutral-600 z-50"
+              className={`absolute transition-all duration-300 ease-in-out ${
+                isMobileMenuOpen
+                  ? "rotate-90 scale-100 opacity-100"
+                  : "rotate-0 scale-0 opacity-0"
+              }`}
             >
-              <div className="flex items-center p-4">
+              <RxCross2 size={30} className="text-zinc-500" />
+            </div>
+            <div
+              className={`absolute transition-all duration-300 ease-in-out ${
+                isMobileMenuOpen
+                  ? "rotate-90 scale-0 opacity-0"
+                  : "rotate-0 scale-100 opacity-100"
+              }`}
+            >
+              <IoMenuOutline size={30} className="text-zinc-300" />
+            </div>
+          </button>
+        </div>
+
+        {/*    Desktop Menu     */}
+        {/* =================== */}
+        <ul className="hidden xl:flex items-center list-none gap-5 text-xl text-light font-Carme ml-auto">
+          <NavLinks docName="Docs" />
+          <li className="w-full xl:w-auto">
+            {user ? (
+              <div className="relative">
                 {user.photoURL ? (
                   <Image
                     src={user.photoURL}
                     alt="user"
-                    height={43}
-                    width={42}
-                    className="rounded-full mr-3"
+                    height={36}
+                    width={36}
+                    id="userAvatar"
+                    className="rounded-full cursor-pointer hover:opacity-80"
+                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                   />
                 ) : (
                   <FaRegCircleUser
                     color="#ececec"
-                    size={42}
-                    className="rounded-full mr-3"
+                    size={36}
+                    id="userAvatar"
+                    className="rounded-full cursor-pointer hover:opacity-80"
+                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                   />
                 )}
-                <div className="flex flex-col">
-                  <span className="font-medium text-white">
-                    {user.displayName || "User"}
-                  </span>
-                  <span className="text-sm text-zinc-400">{user.email}</span>
-                </div>
+                {isDropdownOpen && (
+                  <div
+                    id="userDropdown"
+                    className="w-[280px] top-overFull right-0 absolute leading-[90%] bg-[#0d1017] rounded-lg border-[1.5px] border-neutral-600 z-50"
+                  >
+                    <UserSection />
+                  </div>
+                )}
               </div>
-              <div className="h-[0.5px] bg-zinc-700 my-1.5" />
-              <button
-                className="block w-full py-3 px-4 text-left text-base leading-normal text-white font-Carme cursor-pointer hover:bg-[#171c25]"
-                onClick={() => {
-                  router.push("/profile");
-                  setIsMobileMenuOpen(false);
-                }}
-              >
-                Profile
-              </button>
-              <button
-                className="block w-full py-3 px-4 text-left text-base leading-normal text-white font-Carme cursor-pointer hover:bg-[#171c25]"
-                onClick={() => {
-                  router.push("/settings");
-                  setIsMobileMenuOpen(false);
-                }}
-              >
-                Settings
-              </button>
-              <div className="h-[0.5px] bg-zinc-700 my-1.5" />
-              <button
-                className="block w-full py-3 px-4 text-left text-base leading-normal text-white font-Carme cursor-pointer hover:bg-[#171c25]"
-                onClick={handleLogout}
-              >
-                Logout
-              </button>
-            </div>
-          )}
-        </div>
-      ) : (
-        // Sign in button
-        <button
-          className="h-[30px] w-full xl:w-[85px] text-black rounded-2xl text-xl font-Carme bg-secondary cursor-pointer"
-          onClick={() => {
-            router.push("/auth/sign-in");
-            setIsMobileMenuOpen(false);
-          }}
-        >
-          Sign In
-        </button>
-      )}
-    </li>
-  );
-
-  return (
-    <nav className="w-full px-4 md:px-7 mt-7 sticky z-50">
-      <div className="3xl:w-10/12 md:w-10/12 xs:w-full mx-auto flex flex-col xl:flex-row xl:items-end">
-        <div className="flex justify-between items-center">
-          <Image src={Logo} alt="Pinac Logo" className="h-[30px] w-auto" />
-
-          {/* Hamburger Menu Button */}
-          <button
-            id="hamburgerButton"
-            className="xl:hidden"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? (
-              <RxCross2 size={36} className="text-light" />
             ) : (
-              <IoMenuOutline size={36} className="text-light" />
+              // Sign in button
+              <button
+                className="h-[30px] w-[85px] text-black text-xl font-Carme bg-secondary rounded-2xl cursor-pointer"
+                onClick={() => router.push("/auth/sign-in")}
+              >
+                Sign In
+              </button>
             )}
-          </button>
-        </div>
-
-        {/*    Desktop Menu    */}
-        {/* ================== */}
-        <ul className="hidden xl:flex items-center list-none gap-5 text-xl text-light font-Carme ml-auto">
-          <NavLinks docName="Docs" />
-          <UserSection />
+          </li>
         </ul>
 
         {/*    Mobile Menu    */}
@@ -248,11 +270,34 @@ const Navbar = () => {
         {isMobileMenuOpen && (
           <div
             id="mobileMenu"
-            className="xl:hidden fixed inset-x-0 top-[88px] bg-[#0d1017] border-y border-neutral-600 z-40"
+            className="xl:hidden inset-x-0 bg-primary z-50 h-screen"
           >
-            <ul className="flex flex-col items-center gap-6 p-6 text-xl text-light font-Carme">
+            <ul
+              className="flex flex-col justify-center list-none pt-16 pb-3 gap-6
+                        md:text-xl text-lg text-light font-Carme"
+            >
+              <li>
+                {user && (
+                  <div className="bg-glass-on-primary rounded-lg border-[0.3px] border-zinc-600">
+                    <UserSection />
+                  </div>
+                )}
+              </li>
               <NavLinks docName="View Docs" />
-              <UserSection />
+              {!user && (
+                // Sign in button
+                <li>
+                  <button
+                    className="h-9 w-full text-black text-xl font-Carme bg-secondary rounded-lg cursor-pointer"
+                    onClick={() => {
+                      router.push("/auth/sign-in");
+                      setIsMobileMenuOpen(false);
+                    }}
+                  >
+                    Sign In
+                  </button>
+                </li>
+              )}
             </ul>
           </div>
         )}
