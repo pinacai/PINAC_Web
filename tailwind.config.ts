@@ -51,6 +51,8 @@ export default {
       boxShadow: {
         glass: "0px 0px 1.5px #ececec",
         darkCloud: "0 0 70px 80px #090c13",
+        darkCloudSmall: "0 0 50px 50px #090c13",
+        bgGlow: "0 0 80px rgba(255, 255, 255, 0.3)",
       },
     },
   },

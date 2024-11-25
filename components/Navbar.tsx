@@ -182,7 +182,7 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="w-full px-4 md:px-7 md:mt-7 mt-4 sticky z-50">
+    <nav className="w-full px-4 md:px-7 md:mt-7 mt-4 sticky z-50 bg-primary">
       <div className="3xl:w-10/12 md:w-10/12 xs:w-full mx-auto flex flex-col xl:flex-row xl:items-end">
         <div className="flex justify-between items-center">
           <Image
@@ -270,7 +270,7 @@ const Navbar = () => {
         {isMobileMenuOpen && (
           <div
             id="mobileMenu"
-            className="xl:hidden inset-x-0 bg-primary z-50 h-screen"
+            className="xl:hidden inset-x-0 bg-primary z-50 h-screen w-full"
           >
             <ul
               className="flex flex-col justify-center list-none pt-16 pb-3 gap-6

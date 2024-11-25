@@ -49,8 +49,9 @@ const AppPreview = () => {
       <Image
         alt="app preview"
         src={appImage}
-        className="h-full max-w-[90%] 2xl:rounded-3xl rounded-2xl"
-        style={bgGlow ? { boxShadow: "0 0 80px rgba(255, 255, 255, 0.3)" } : {}}
+        className={`${
+          bgGlow ? "2xl-2:shadow-bgGlow" : ""
+        } h-full max-w-[90%] 2xl:rounded-3xl md:rounded-2xl rounded-lg`}
       />
     </div>
   );
